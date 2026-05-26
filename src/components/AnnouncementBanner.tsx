@@ -36,7 +36,7 @@ export function AnnouncementBanner() {
   };
 
   return (
-    <div className="bg-accent text-accent-foreground w-full relative h-9 md:h-10 flex items-center justify-between px-4 md:px-12 select-none border-b border-white/10 z-50 text-[10px] md:text-xs tracking-wider uppercase font-medium">
+    <div className="bg-accent text-accent-foreground w-full relative min-h-[36px] py-1.5 md:py-0 md:h-10 flex items-center justify-between px-3 md:px-12 select-none border-b border-white/10 z-50 text-[9px] md:text-xs tracking-wider uppercase font-medium">
       {/* Sparkle decorative icon left */}
       <div className="hidden md:flex items-center gap-1.5 opacity-90">
         <Sparkles className="w-3.5 h-3.5 text-accent-foreground animate-pulse" />
@@ -50,14 +50,14 @@ export function AnnouncementBanner() {
           className="hover:opacity-75 transition-opacity focus:outline-none shrink-0 p-1 cursor-pointer"
           aria-label="Anuncio anterior"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
         </button>
 
         {/* Content Center */}
-        <div className="flex-1 text-center overflow-hidden px-4 select-text">
+        <div className="flex-1 text-center px-2 select-text py-0.5">
           <span
-            className={`inline-block transition-all duration-200 ${
-              fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+            className={`inline-block transition-all duration-200 leading-tight md:leading-none text-center ${
+              fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1.5"
             }`}
           >
             {announcements[currentIndex]}
@@ -70,7 +70,7 @@ export function AnnouncementBanner() {
           className="hover:opacity-75 transition-opacity focus:outline-none shrink-0 p-1 cursor-pointer"
           aria-label="Siguiente anuncio"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
         </button>
       </div>
 
