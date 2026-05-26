@@ -1,26 +1,51 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Nav } from "@/components/Nav";
+import { Hero } from "@/components/Hero";
+import { Process } from "@/components/Process";
+import { BrandsCarousel } from "@/components/BrandsCarousel";
+import { Events } from "@/components/Events";
+import { Catalog } from "@/components/Catalog";
+import { CartDrawer } from "@/components/CartDrawer";
+import { Footer } from "@/components/Footer";
+import { Toaster } from "@/components/ui/sonner";
+import { useReveal } from "@/hooks/useReveal";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "BaPal — Panettería Boutique" },
+      {
+        name: "description",
+        content:
+          "Panadería boutique de alta gama: masa madre de 48h, ingredientes nobles y catering para eventos premium.",
+      },
+      { property: "og:title", content: "BaPal — Panettería Boutique" },
+      {
+        property: "og:description",
+        content: "El arte del pan, elevado. Catálogo, eventos y catering premium.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
+  const [cartOpen, setCartOpen] = useState(false);
+  useReveal();
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <Nav onCart={() => setCartOpen(true)} />
+      <main>
+        <Hero />
+        <Process />
+        <BrandsCarousel />
+        <Events />
+        <Catalog />
+      </main>
+      <Footer />
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+      <Toaster position="bottom-right" />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
