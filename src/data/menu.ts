@@ -270,14 +270,6 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "hoj-2",
-    name: "Cuerno de Cajeta con Nuez",
-    description: "Masa brioche con abundante relleno de cajeta y lluvia de nuez.",
-    price: 38,
-    category: "Cuernos & Hojaldres",
-    image: imgCuernoCajeta,
-  },
-  {
     id: "hoj-3",
     name: "Barquillo de Crema",
     description: "Cono de hojaldre crujiente espolvoreado con azúcar, relleno de crema pastelera casera.",
