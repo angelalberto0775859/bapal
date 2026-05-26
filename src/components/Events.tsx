@@ -133,11 +133,12 @@ export function Events() {
   );
 }
 
-function Field({ name, label, type = "text", required }: { name: string; label: string; type?: string; required?: boolean }) {
+function Field({ id, name, label, type = "text", required }: { id: string; name: string; label: string; type?: string; required?: boolean }) {
   return (
     <div>
-      <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">{label}</label>
+      <label htmlFor={id} className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">{label}</label>
       <input
+        id={id}
         name={name}
         type={type}
         required={required}
