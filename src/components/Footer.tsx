@@ -34,6 +34,28 @@ export function Footer() {
           </a>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto px-6 mt-10">
+        <div className="overflow-hidden rounded-lg border border-border shadow-sm">
+          <iframe
+            title="Mapa de BaPal Panettería"
+            src="https://www.google.com/maps?q=Av.+Alfredo+V.+Bonfil+157,+Coapa,+Presidentes+Ejidales+2da+Secc,+Coyoac%C3%A1n,+04470+Ciudad+de+M%C3%A9xico,+CDMX&output=embed"
+            width="100%"
+            height="320"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+        <a
+          href="https://maps.app.goo.gl/MUimij8Hxa5uN3Tp8"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mt-3 text-sm text-accent hover:underline"
+        >
+          Cómo llegar →
+        </a>
+      </div>
       <p className="text-center text-xs text-muted-foreground mt-12">
         © {new Date().getFullYear()} BaPal Panettería. Todos los derechos reservados.
       </p>
