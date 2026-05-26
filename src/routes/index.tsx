@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Process } from "@/components/Process";
 import { BrandsCarousel } from "@/components/BrandsCarousel";
+import { Recommendations } from "@/components/Recommendations";
 import { Catalog } from "@/components/Catalog";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Footer } from "@/components/Footer";
@@ -41,6 +42,7 @@ function Index() {
         <Hero />
         <BrandsCarousel />
         <Process />
+        <Recommendations />
         <Catalog />
       </main>
       <Footer />

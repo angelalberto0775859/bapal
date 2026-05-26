@@ -18,11 +18,11 @@ export function Nav({ onCart }: { onCart: () => void }) {
           <a href="/#proceso" className="hover:text-foreground transition">
             Proceso
           </a>
-          <a href="/eventos" className="hover:text-foreground transition">
-            Eventos
-          </a>
           <a href="/#catalogo" className="hover:text-foreground transition">
             Catálogo
+          </a>
+          <a href="/eventos" className="hover:text-foreground transition">
+            Eventos
           </a>
         </nav>
         <button
