@@ -14,6 +14,11 @@ export function Footer() {
           <p className="uppercase text-xs tracking-widest text-foreground mb-3">Contacto</p>
           <p>WhatsApp: +52 55 6066 0606</p>
           <p>hola@bapal.mx</p>
+          <p className="pt-2 leading-relaxed">
+            Av. Alfredo V. Bonfil 157, Coapa<br />
+            Presidentes Ejidales 2da Secc<br />
+            Coyoacán, 04470 Ciudad de México, CDMX
+          </p>
         </div>
         <div className="text-sm text-muted-foreground space-y-2">
           <p className="uppercase text-xs tracking-widest text-foreground mb-3">Horario</p>
