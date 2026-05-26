@@ -8,6 +8,7 @@ import { Events } from "@/components/Events";
 import { Catalog } from "@/components/Catalog";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Footer } from "@/components/Footer";
+import { FloatingContact } from "@/components/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/useReveal";
 
@@ -49,6 +50,7 @@ function Index() {
       <Footer />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <Toaster position="bottom-right" />
+      <FloatingContact />
     </div>
   );
 }
