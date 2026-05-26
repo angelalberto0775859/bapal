@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, X, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 
 export function AnnouncementBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
   const [fade, setFade] = useState(true);
 
   const announcements = [
@@ -12,24 +11,13 @@ export function AnnouncementBanner() {
     "🕒 Horneo diario con masa madre de fermentación lenta. ¡Pedidos listos hoy! 🥖",
   ];
 
-  // Load visibility state from localStorage to remember user's choice
   useEffect(() => {
-    const isDismissed = localStorage.getItem("bapal_announcement_dismissed");
-    if (isDismissed === "true") {
-      setVisible(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!visible) return;
     const interval = setInterval(() => {
       handleNext();
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [visible, announcements.length]);
-
-  if (!visible) return null;
+  }, [announcements.length]);
 
   const handlePrev = () => {
     setFade(false);
@@ -45,11 +33,6 @@ export function AnnouncementBanner() {
       setCurrentIndex((prev) => (prev + 1) % announcements.length);
       setFade(true);
     }, 200);
-  };
-
-  const dismiss = () => {
-    setVisible(false);
-    localStorage.setItem("bapal_announcement_dismissed", "true");
   };
 
   return (
@@ -91,14 +74,11 @@ export function AnnouncementBanner() {
         </button>
       </div>
 
-      {/* Dismiss Button */}
-      <button
-        onClick={dismiss}
-        className="hover:opacity-75 transition-opacity focus:outline-none shrink-0 border-l border-white/20 pl-3 p-1 cursor-pointer"
-        aria-label="Cerrar aviso"
-      >
-        <X className="w-3.5 h-3.5" />
-      </button>
+      {/* Sparkle decorative icon right */}
+      <div className="hidden md:flex items-center gap-1.5 opacity-90">
+        <span>BaPal</span>
+        <Sparkles className="w-3.5 h-3.5 text-accent-foreground animate-pulse" />
+      </div>
     </div>
   );
 }
