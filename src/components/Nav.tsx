@@ -1,11 +1,14 @@
 import logo from "@/assets/bapal-logo.png";
 import { useCart } from "@/lib/cart-store";
+import { AnnouncementBanner } from "./AnnouncementBanner";
 
 export function Nav({ onCart }: { onCart: () => void }) {
   const items = useCart();
   const count = items.reduce((s, i) => s + i.qty, 0);
   return (
-    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-background/70 border-b border-border/60">
+    <header className="fixed top-0 inset-x-0 z-40 flex flex-col">
+      <AnnouncementBanner />
+      <div className="backdrop-blur-md bg-background/70 border-b border-border/60">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3">
           <img src={logo} alt="BaPal Panettería" className="h-10 w-auto" />
@@ -36,6 +39,7 @@ export function Nav({ onCart }: { onCart: () => void }) {
             </span>
           )}
         </button>
+      </div>
       </div>
     </header>
   );
