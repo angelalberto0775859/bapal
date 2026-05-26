@@ -50,6 +50,7 @@ function Index() {
       <Footer />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <Toaster position="bottom-right" />
+      <FloatingContact />
     </div>
   );
 }
