@@ -22,7 +22,16 @@ export function Footer() {
         </div>
         <div className="text-sm text-muted-foreground space-y-2">
           <p className="uppercase text-xs tracking-widest text-foreground mb-3">Horario</p>
-          <p>Mar – Dom · 8:00 a 20:00</p>
+          <p>Lun – Sáb · 8:00 a 21:00</p>
+          <p>Dom · 8:00 a 20:00</p>
+          <a
+            href="https://maps.app.goo.gl/MUimij8Hxa5uN3Tp8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-accent hover:underline"
+          >
+            Déjanos una reseña en Google →
+          </a>
         </div>
       </div>
       <p className="text-center text-xs text-muted-foreground mt-12">
