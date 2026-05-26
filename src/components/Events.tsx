@@ -91,15 +91,16 @@ export function Events() {
             Cuéntanos los detalles de tu evento. Recibirás una propuesta personalizada.
           </p>
           <div className="grid md:grid-cols-2 gap-5">
-            <Field name="name" label="Nombre" required />
-            <Field name="email" label="Correo" type="email" required />
-            <Field name="date" label="Fecha del evento" type="date" required />
-            <Field name="guests" label="Número de invitados" type="number" required />
+            <Field id="event-name" name="name" label="Nombre" required />
+            <Field id="event-email" name="email" label="Correo" type="email" required />
+            <Field id="event-date" name="date" label="Fecha del evento" type="date" required />
+            <Field id="event-guests" name="guests" label="Número de invitados" type="number" required />
             <div className="md:col-span-2">
-              <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
+              <label htmlFor="event-service" className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
                 Tipo de servicio
               </label>
               <select
+                id="event-service"
                 name="service"
                 className="w-full bg-transparent border-b border-border py-3 outline-none focus:border-accent transition text-foreground"
               >
@@ -109,10 +110,11 @@ export function Events() {
               </select>
             </div>
             <div className="md:col-span-2">
-              <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
+              <label htmlFor="event-message" className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
                 Mensaje
               </label>
               <textarea
+                id="event-message"
                 name="message"
                 rows={3}
                 className="w-full bg-transparent border-b border-border py-3 outline-none focus:border-accent transition resize-none"
