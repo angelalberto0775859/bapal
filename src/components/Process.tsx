@@ -30,10 +30,10 @@ export function Process() {
   return (
     <section id="proceso" className="py-32 bg-secondary/40">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="reveal max-w-2xl mb-24">
+        <div className="reveal max-w-2xl mb-24 mx-auto text-center">
           <p className="text-xs tracking-[0.3em] text-accent uppercase mb-4">Experiencia Artesanal</p>
-          <h2 className="font-serif text-4xl md:text-6xl">Nuestro Proceso</h2>
-          <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
+          <h2 className="font-serif text-4xl md:text-5xl md:text-6xl">Nuestro Proceso</h2>
+          <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-md mx-auto">
             Tres etapas. Tres obsesiones. La promesa silenciosa detrás de cada pieza BaPal.
           </p>
         </div>

@@ -88,7 +88,7 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
           <button
             disabled={items.length === 0}
             onClick={handleCheckout}
-            className="w-full py-4 bg-foreground text-background text-sm uppercase tracking-widest hover:bg-accent transition disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full py-4 bg-accent text-accent-foreground text-sm font-semibold uppercase tracking-widest hover:bg-accent/90 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
           >
             Confirmar orden · WhatsApp + PDF
           </button>

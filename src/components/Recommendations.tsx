@@ -101,7 +101,7 @@ export function Recommendations() {
                   </div>
                   <button
                     onClick={() => addToCart(item)}
-                    className="text-xs uppercase tracking-widest px-5 py-2.5 bg-foreground text-background rounded-full hover:bg-accent hover:text-accent-foreground transition duration-300 font-medium"
+                    className="text-xs uppercase tracking-widest px-5 py-2.5 bg-accent text-accent-foreground font-semibold rounded-full hover:scale-105 active:scale-95 shadow-md hover:bg-accent/90 transition duration-300 cursor-pointer"
                   >
                     Añadir al carrito
                   </button>

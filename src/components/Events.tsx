@@ -46,9 +46,9 @@ export function Events() {
   return (
     <section id="eventos" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="reveal max-w-2xl mb-16">
+        <div className="reveal max-w-2xl mb-16 mx-auto text-center">
           <p className="text-xs tracking-[0.3em] text-accent uppercase mb-4">División Exclusiva</p>
-          <h2 className="font-serif text-4xl md:text-6xl">Eventos & Catering</h2>
+          <h2 className="font-serif text-4xl md:text-5xl md:text-6xl">Eventos & Catering</h2>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-10 border-b border-border">
