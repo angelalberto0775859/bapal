@@ -94,9 +94,19 @@ export function Footer() {
           Cómo llegar →
         </a>
       </div>
-      <p className="text-center text-xs text-muted-foreground mt-12">
-        © {new Date().getFullYear()} BaPal Panettería. Todos los derechos reservados.
-      </p>
+      <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+        <p>
+          © {new Date().getFullYear()} BaPal Panettería. Todos los derechos reservados.
+        </p>
+        <div className="flex gap-6">
+          <a href="/privacidad" className="hover:text-foreground transition">
+            Aviso de Privacidad
+          </a>
+          <a href="/privacidad#cookies" className="hover:text-foreground transition">
+            Política de Cookies
+          </a>
+        </div>
+      </div>
     </footer>
   );
 }
