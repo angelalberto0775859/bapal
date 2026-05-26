@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t border-border py-16">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 items-start">
         <div>
-          <img src={logo} alt="BaPal" className="h-16 w-auto mb-4" />
+          <img src={logo} alt="BaPal Panettería" className="h-16 w-auto mb-4" />
           <p className="text-sm text-muted-foreground max-w-xs">
             Panettería boutique. Masa madre, ingredientes nobles y horneado del día.
           </p>
