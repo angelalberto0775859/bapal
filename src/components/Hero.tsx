@@ -18,7 +18,7 @@ export function Hero() {
             <a href="#catalogo" className="px-6 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:bg-accent transition">
               Explorar catálogo
             </a>
-            <a href="#eventos" className="px-6 py-3 rounded-full border border-foreground/20 text-sm font-medium hover:border-foreground transition">
+            <a href="/eventos" className="px-6 py-3 rounded-full border border-foreground/20 text-sm font-medium hover:border-foreground transition">
               Eventos & Catering
             </a>
           </div>

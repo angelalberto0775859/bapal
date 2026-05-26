@@ -1,47 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Nav } from "@/components/Nav";
-import { Hero } from "@/components/Hero";
-import { Process } from "@/components/Process";
-import { BrandsCarousel } from "@/components/BrandsCarousel";
-import { Catalog } from "@/components/Catalog";
+import { Events } from "@/components/Events";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/useReveal";
 
-export const Route = createFileRoute("/")({
-  component: Index,
+export const Route = createFileRoute("/eventos")({
+  component: EventosPage,
   head: () => ({
     meta: [
-      { title: "BaPal — Panettería Boutique" },
+      { title: "Eventos & Catering Premium — BaPal" },
       {
         name: "description",
         content:
-          "Panadería boutique de alta gama: masa madre de 48h, ingredientes nobles y catering para eventos premium.",
-      },
-      { property: "og:title", content: "BaPal — Panettería Boutique" },
-      {
-        property: "og:description",
-        content: "El arte del pan, elevado. Catálogo, eventos y catering premium.",
+          "Catering exclusivo de panadería boutique y repostería fina para bodas, banquetes y eventos corporativos de alta gama.",
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
   }),
 });
 
-function Index() {
+function EventosPage() {
   const [cartOpen, setCartOpen] = useState(false);
   useReveal();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav onCart={() => setCartOpen(true)} />
-      <main>
-        <Hero />
-        <BrandsCarousel />
-        <Process />
-        <Catalog />
+      <main className="pt-16">
+        <Events />
       </main>
       <Footer />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
