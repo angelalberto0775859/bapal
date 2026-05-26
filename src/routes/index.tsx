@@ -27,6 +27,9 @@ export const Route = createFileRoute("/")({
         content: "El arte del pan, elevado. Catálogo, eventos y catering premium.",
       },
     ],
+    links: [
+      { rel: "canonical", href: "/" },
+    ],
   }),
 });
 
