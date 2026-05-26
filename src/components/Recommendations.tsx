@@ -63,47 +63,47 @@ export function Recommendations() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-center">
           {itemsWithCustomMeta.map((item, index) => (
             <article 
               key={item.id}
-              className="reveal bg-card border border-border rounded-sm overflow-hidden flex flex-col group hover:border-foreground/30 transition duration-300 shadow-sm"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="bg-card border border-border p-5 flex flex-col sm:flex-row gap-5 group hover:border-foreground/45 transition-all duration-300 hover:shadow-md md:p-6 rounded-sm animate-card-in opacity-0"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {item.imageSrc && (
-                <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+                <div className="w-full aspect-[2/1] sm:w-28 sm:h-28 md:w-32 md:h-32 sm:aspect-square shrink-0 overflow-hidden border border-border bg-secondary rounded-sm relative">
                   <img
                     src={item.imageSrc}
                     alt={item.name}
-                    className="w-full h-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
-                  <span className="absolute top-4 left-4 bg-accent text-accent-foreground text-[10px] tracking-widest uppercase px-3 py-1.5 rounded-full font-medium shadow-md">
+                  <span className="absolute top-2 left-2 bg-accent text-accent-foreground text-[8px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium shadow-sm">
                     {item.tag}
                   </span>
                 </div>
               )}
               
-              <div className="p-6 md:p-8 flex flex-col flex-1 justify-between">
+              <div className="flex flex-col flex-1 min-w-0 justify-between text-center sm:text-left">
                 <div>
-                  <h3 className="font-serif text-2xl mb-2.5 leading-snug group-hover:text-accent transition duration-300">
+                  <h3 className="font-serif text-xl md:text-2xl leading-tight truncate transition-colors duration-300 group-hover:text-accent">
                     {item.name}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-xs md:text-sm text-muted-foreground mt-1.5 leading-relaxed line-clamp-2 md:line-clamp-3">
                     {item.customDesc}
                   </p>
                 </div>
-
-                <div className="pt-5 border-t border-border/40 flex items-center justify-between mt-auto">
+ 
+                <div className="pt-4 flex items-center justify-between border-t border-border/40 mt-4">
                   <div>
-                    <span className="text-[10px] uppercase tracking-widest text-muted-foreground block mb-0.5">Desde</span>
-                    <span className="font-serif text-2xl text-foreground">{formatMXN(item.price)}</span>
+                    <span className="text-[9px] uppercase tracking-widest text-muted-foreground block mb-0.5">Desde</span>
+                    <span className="font-serif text-lg md:text-xl font-medium">{formatMXN(item.price)}</span>
                   </div>
                   <button
                     onClick={() => addToCart(item)}
-                    className="text-xs uppercase tracking-widest px-5 py-2.5 bg-accent text-accent-foreground font-semibold rounded-full hover:scale-105 active:scale-95 shadow-md hover:bg-accent/90 transition duration-300 cursor-pointer"
+                    className="flex items-center justify-center text-center text-xs uppercase tracking-widest px-5 py-2.5 bg-accent text-accent-foreground font-semibold rounded-full hover:scale-105 active:scale-95 shadow-md hover:bg-accent/90 transition duration-300 cursor-pointer"
                   >
-                    Añadir al carrito
+                    Añadir
                   </button>
                 </div>
               </div>

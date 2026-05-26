@@ -34,8 +34,8 @@ export function Catalog() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto justify-center">
-          {filtered.map((p) => (
-            <ProductCard key={p.id} product={p} />
+          {filtered.map((p, index) => (
+            <ProductCard key={`${active}-${p.id}`} product={p} index={index} />
           ))}
         </div>
       </div>
@@ -43,7 +43,7 @@ export function Catalog() {
   );
 }
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product, index }: { product: Product; index: number }) {
   const [variantIdx, setVariantIdx] = useState(0);
   const variant = product.variants?.[variantIdx];
   const price = product.price + (variant?.priceDelta ?? 0);
@@ -56,7 +56,10 @@ function ProductCard({ product }: { product: Product }) {
   }
 
   return (
-    <article className="bg-card border border-border p-5 flex flex-col sm:flex-row gap-5 group hover:border-foreground/45 transition-all duration-300 hover:shadow-md md:p-6 rounded-sm">
+    <article
+      className="bg-card border border-border p-5 flex flex-col sm:flex-row gap-5 group hover:border-foreground/45 transition-all duration-300 hover:shadow-md md:p-6 rounded-sm animate-card-in opacity-0"
+      style={{ animationDelay: `${index * 50}ms` }}
+    >
       {currentImage && (
         <div className="w-full aspect-[2/1] sm:w-28 sm:h-28 md:w-32 md:h-32 sm:aspect-square shrink-0 overflow-hidden border border-border bg-secondary rounded-sm">
           <img
@@ -99,7 +102,7 @@ function ProductCard({ product }: { product: Product }) {
           <span className="font-serif text-lg md:text-xl font-medium">{formatMXN(price)}</span>
           <button
             onClick={add}
-            className="text-xs uppercase tracking-widest px-5 py-2.5 bg-accent text-accent-foreground font-semibold rounded-full hover:scale-105 active:scale-95 shadow-md transition-all duration-300 hover:bg-accent/90 cursor-pointer"
+            className="flex items-center justify-center text-center text-xs uppercase tracking-widest px-5 py-2.5 bg-accent text-accent-foreground font-semibold rounded-full hover:scale-105 active:scale-95 shadow-md transition-all duration-300 hover:bg-accent/90 cursor-pointer"
           >
             Añadir
           </button>

@@ -24,7 +24,7 @@ export function Hero() {
           </div>
         </div>
         <div className="relative">
-          <img src={hero} alt="Hogaza artesanal" className="w-full aspect-[4/5] object-cover rounded-sm shadow-2xl" width={1600} height={1200} />
+          <img src={hero} alt="Hogaza artesanal" className="w-full aspect-[4/3] sm:aspect-[4/5] object-cover rounded-sm shadow-2xl" width={1600} height={1200} />
           <div className="absolute -bottom-6 -left-6 hidden md:block polaroid w-40 rotate-[-4deg]">
             <div className="aspect-square bg-secondary" />
             <p className="font-serif text-xs text-center mt-2 text-muted-foreground">desde 2018</p>

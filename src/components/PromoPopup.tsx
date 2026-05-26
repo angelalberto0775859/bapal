@@ -35,7 +35,7 @@ export function PromoPopup() {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-end md:items-center justify-center p-4 transition-all duration-300 pointer-events-none md:pointer-events-auto md:bg-black/25 md:backdrop-blur-xs ${
+      className={`fixed inset-0 z-50 flex items-end md:items-center justify-center p-4 transition-all duration-300 pointer-events-auto bg-black/45 backdrop-blur-[3px] ${
         show ? "opacity-100" : "opacity-0"
       }`}
       onClick={handleClose}
