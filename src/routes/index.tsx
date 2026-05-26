@@ -11,6 +11,7 @@ import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/useReveal";
+import { PromoPopup } from "@/components/PromoPopup";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -49,6 +50,7 @@ function Index() {
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <Toaster position="bottom-right" />
       <FloatingContact />
+      <PromoPopup />
     </div>
   );
 }
