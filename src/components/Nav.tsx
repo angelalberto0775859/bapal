@@ -1,0 +1,34 @@
+import logo from "@/assets/bapal-logo.png";
+import { useCart } from "@/lib/cart-store";
+
+export function Nav({ onCart }: { onCart: () => void }) {
+  const items = useCart();
+  const count = items.reduce((s, i) => s + i.qty, 0);
+  return (
+    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-background/70 border-b border-border/60">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-3">
+          <img src={logo} alt="BaPal" className="h-10 w-auto" />
+          <span className="font-serif text-xl tracking-wide">BaPal</span>
+        </a>
+        <nav className="hidden md:flex items-center gap-10 text-sm text-muted-foreground">
+          <a href="#proceso" className="hover:text-foreground transition">Proceso</a>
+          <a href="#alianzas" className="hover:text-foreground transition">Alianzas</a>
+          <a href="#eventos" className="hover:text-foreground transition">Eventos</a>
+          <a href="#catalogo" className="hover:text-foreground transition">Catálogo</a>
+        </nav>
+        <button
+          onClick={onCart}
+          className="relative text-sm font-medium px-4 py-2 rounded-full border border-foreground/15 hover:bg-foreground hover:text-background transition"
+        >
+          Carrito
+          {count > 0 && (
+            <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-[10px] w-5 h-5 rounded-full grid place-items-center">
+              {count}
+            </span>
+          )}
+        </button>
+      </div>
+    </header>
+  );
+}
