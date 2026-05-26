@@ -4,14 +4,7 @@ import { cart } from "@/lib/cart-store";
 import { formatMXN } from "@/lib/checkout";
 import { toast } from "sonner";
 
-// Load all edited bread images dynamically
-const breadImages = Object.values(
-  import.meta.glob("@/assets/Panes/edited/*.jpg", {
-    eager: true,
-    query: "?url",
-    import: "default",
-  }),
-) as string[];
+
 
 export function Recommendations() {
   // Find the exact products in our database
@@ -27,28 +20,24 @@ export function Recommendations() {
       {
         tag: "El Más Vendido",
         customDesc: "Crujiente hojaldre francés de 81 capas con una variedad de rellenos selectos.",
-        imageIdx: 3,
       },
       {
         tag: "Favorito Tradicional",
         customDesc: "Masa brioche de fermentación lenta de 48h con costra artesanal y vainilla de Papantla.",
-        imageIdx: 7,
       },
       {
         tag: "Recomendación del Chef",
         customDesc: "Bisquet dorado de mantequilla pura, de miga densa y sabor inigualable.",
-        imageIdx: 15,
       },
     ];
 
     return bestSellers.map((product, i) => {
       const info = meta[i % meta.length];
-      const imageSrc = breadImages.length > 0 ? breadImages[info.imageIdx % breadImages.length] : null;
       return {
         ...product,
         tag: info.tag,
         customDesc: info.customDesc,
-        imageSrc,
+        imageSrc: product.image,
       };
     });
   }, [bestSellers]);

@@ -4,14 +4,6 @@ import { cart } from "@/lib/cart-store";
 import { formatMXN } from "@/lib/checkout";
 import { toast } from "sonner";
 
-// Load all edited bread images dynamically
-const breadImages = Object.values(
-  import.meta.glob("@/assets/Panes/edited/*.jpg", {
-    eager: true,
-    query: "?url",
-    import: "default",
-  }),
-) as string[];
 
 export function Catalog() {
   const [active, setActive] = useState<string>(categories[0]);
@@ -56,12 +48,7 @@ function ProductCard({ product }: { product: Product }) {
   const variant = product.variants?.[variantIdx];
   const price = product.price + (variant?.priceDelta ?? 0);
 
-  // Match each product to an image using a hash of its ID
-  const imageSrc = useMemo(() => {
-    if (breadImages.length === 0) return null;
-    const hash = product.id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
-    return breadImages[hash % breadImages.length];
-  }, [product.id]);
+  const currentImage = variant?.image || product.image;
 
   function add() {
     cart.add(product, variant);
@@ -70,10 +57,10 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="bg-card border border-border p-5 flex gap-5 group hover:border-foreground/45 transition duration-300 md:p-6 rounded-sm">
-      {imageSrc && (
+      {currentImage && (
         <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 shrink-0 overflow-hidden border border-border bg-secondary rounded-sm">
           <img
-            src={imageSrc}
+            src={currentImage}
             alt={product.name}
             className="w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]"
             loading="lazy"
