@@ -1,23 +1,18 @@
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 
 export function AnnouncementBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
-  const announcements = [
-    "✨ ¡Celebramos la apertura de nuestra página web! Explora el catálogo en línea. 🥖",
-    "🎉 Eventos y Catering Premium: Lleva la alta panadería a tus reuniones. 🥐",
-    "🕒 Horneo diario con masa madre de fermentación lenta. ¡Pedidos listos hoy! 🥖",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, [announcements.length]);
+  const announcements = useMemo(
+    () => [
+      "✨ ¡Celebramos la apertura de nuestra página web! Explora el catálogo en línea. 🥖",
+      "🎉 Eventos y Catering Premium: Lleva la alta panadería a tus reuniones. 🥐",
+      "🕒 Horneo diario con masa madre de fermentación lenta. ¡Pedidos listos hoy! 🥖",
+    ],
+    [],
+  );
 
   const handlePrev = () => {
     setFade(false);
@@ -27,13 +22,21 @@ export function AnnouncementBanner() {
     }, 200);
   };
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setFade(false);
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % announcements.length);
       setFade(true);
     }, 200);
-  };
+  }, [announcements.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [handleNext]);
 
   return (
     <div className="bg-accent text-accent-foreground w-full relative min-h-[36px] py-1.5 md:py-0 md:h-10 flex items-center justify-between px-3 md:px-12 select-none border-b border-white/10 z-50 text-[9px] md:text-xs tracking-wider uppercase font-medium">

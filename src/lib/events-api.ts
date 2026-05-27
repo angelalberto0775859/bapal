@@ -1,4 +1,5 @@
 const EVENTS_TO_EMAIL = "panetteriabapal@gmail.com";
+const LOCAL_RECAPTCHA_TEST_SECRET = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
 
 type EventsEnv = {
   RECAPTCHA_SECRET_KEY?: string;
@@ -40,18 +41,28 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#039;");
 }
 
-function requiredEnv(env: EventsEnv) {
+function isLocalRequest(request: Request) {
+  const hostname = new URL(request.url).hostname;
+  return hostname === "localhost" || hostname === "127.0.0.1";
+}
+
+function requiredEnv(env: EventsEnv, request: Request) {
   const missing = [];
-  if (!env.RECAPTCHA_SECRET_KEY) missing.push("RECAPTCHA_SECRET_KEY");
-  if (!env.RESEND_API_KEY) missing.push("RESEND_API_KEY");
+  if (!getRecaptchaSecret(env, request)) missing.push("RECAPTCHA_SECRET_KEY");
+  if (!env.RESEND_API_KEY && !isLocalRequest(request)) missing.push("RESEND_API_KEY");
   return missing;
 }
 
+function getRecaptchaSecret(env: EventsEnv, request: Request) {
+  return env.RECAPTCHA_SECRET_KEY || (isLocalRequest(request) ? LOCAL_RECAPTCHA_TEST_SECRET : "");
+}
+
 async function verifyRecaptcha(token: string, request: Request, env: EventsEnv) {
-  if (!env.RECAPTCHA_SECRET_KEY) return false;
+  const secret = getRecaptchaSecret(env, request);
+  if (!secret) return false;
 
   const form = new URLSearchParams({
-    secret: env.RECAPTCHA_SECRET_KEY,
+    secret,
     response: token,
   });
 
@@ -99,7 +110,18 @@ function buildEmail(payload: Required<EventPayload>) {
     </div>`;
 }
 
-async function sendEventEmail(payload: Required<EventPayload>, env: EventsEnv) {
+async function sendEventEmail(payload: Required<EventPayload>, env: EventsEnv, request: Request) {
+  if (!env.RESEND_API_KEY && isLocalRequest(request)) {
+    console.info("Local event lead captured without Resend:", {
+      name: payload.name,
+      email: payload.email,
+      date: payload.date,
+      guests: payload.guests,
+      service: payload.service,
+    });
+    return;
+  }
+
   const to = env.EVENTS_TO_EMAIL || EVENTS_TO_EMAIL;
   const from = env.EVENTS_FROM_EMAIL || "BaPal Eventos <onboarding@resend.dev>";
 
@@ -130,13 +152,10 @@ export async function handleEventsApi(request: Request, env: unknown) {
   }
 
   const typedEnv = (env || {}) as EventsEnv;
-  const missing = requiredEnv(typedEnv);
+  const missing = requiredEnv(typedEnv, request);
   if (missing.length > 0) {
     console.error("Missing env vars:", missing);
-    return json(
-      { error: "Configuración incompleta del servidor." },
-      { status: 500 },
-    );
+    return json({ error: "Configuración incompleta del servidor." }, { status: 500 });
   }
 
   let rawPayload: EventPayload;
@@ -191,6 +210,6 @@ export async function handleEventsApi(request: Request, env: unknown) {
     return json({ error: "No pudimos validar el reCAPTCHA." }, { status: 400 });
   }
 
-  await sendEventEmail(payload, typedEnv);
+  await sendEventEmail(payload, typedEnv, request);
   return json({ ok: true });
 }

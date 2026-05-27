@@ -6,7 +6,7 @@ const galleryImages = Object.entries(
   }),
 )
   .map(([path, src]) => ({
-    src: src as string,
+    src: `${src as string}?v=paper`,
     name:
       path.split("/").pop()?.replace(".jpg", "").replace("pan-", "Pieza ").replaceAll("-", " ") ??
       "Pan artesanal",

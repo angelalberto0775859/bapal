@@ -45,16 +45,15 @@ export function Footer() {
             </a>
           </p>
           <p>
-            <a
-              href="mailto:panetteriabapal@gmail.com"
-              className="hover:text-foreground transition"
-            >
+            <a href="mailto:panetteriabapal@gmail.com" className="hover:text-foreground transition">
               panetteriabapal@gmail.com
             </a>
           </p>
           <p className="pt-2 leading-relaxed">
-            Av. Alfredo V. Bonfil 157, Coapa<br />
-            Presidentes Ejidales 2da Secc<br />
+            Av. Alfredo V. Bonfil 157, Coapa
+            <br />
+            Presidentes Ejidales 2da Secc
+            <br />
             Coyoacán, 04470 Ciudad de México, CDMX
           </p>
         </div>
@@ -95,9 +94,7 @@ export function Footer() {
         </a>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-        <p>
-          © {new Date().getFullYear()} BaPal Panettería. Todos los derechos reservados.
-        </p>
+        <p>© {new Date().getFullYear()} BaPal Panettería. Todos los derechos reservados.</p>
         <div className="flex gap-6">
           <a href="/privacidad" className="hover:text-foreground transition">
             Aviso de Privacidad

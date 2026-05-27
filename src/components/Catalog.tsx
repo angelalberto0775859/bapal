@@ -4,7 +4,6 @@ import { cart } from "@/lib/cart-store";
 import { formatMXN } from "@/lib/checkout";
 import { toast } from "sonner";
 
-
 export function Catalog() {
   const [active, setActive] = useState<string>(categories[0]);
   const filtered = useMemo(() => products.filter((p) => p.category === active), [active]);
@@ -48,7 +47,8 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
   const variant = product.variants?.[variantIdx];
   const price = product.price + (variant?.priceDelta ?? 0);
 
-  const currentImage = variant?.image || product.image;
+  const currentImage =
+    variant?.image || product.image ? `${variant?.image || product.image}?v=paper` : undefined;
 
   function add() {
     cart.add(product, variant);
@@ -72,7 +72,9 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       )}
       <div className="flex flex-col flex-1 min-w-0 justify-between text-center sm:text-left">
         <div>
-          <h3 className="font-serif text-xl md:text-2xl leading-tight truncate transition-colors duration-300 group-hover:text-accent">{product.name}</h3>
+          <h3 className="font-serif text-xl md:text-2xl leading-tight truncate transition-colors duration-300 group-hover:text-accent">
+            {product.name}
+          </h3>
           <p className="text-xs md:text-sm text-muted-foreground mt-1.5 leading-relaxed line-clamp-2 md:line-clamp-3">
             {product.description}
           </p>

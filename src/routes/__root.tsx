@@ -74,15 +74,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "BaPal Panettería Boutique" },
-      { name: "description", content: "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium." },
+      {
+        name: "description",
+        content:
+          "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
+      },
       { property: "og:title", content: "BaPal Panettería Boutique" },
-      { property: "og:description", content: "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium." },
+      {
+        property: "og:description",
+        content:
+          "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "BaPal Panettería Boutique" },
-      { name: "twitter:description", content: "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/0fc849f9-fdf1-493a-90a0-6589c1944ce3" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/0fc849f9-fdf1-493a-90a0-6589c1944ce3" },
+      {
+        name: "twitter:description",
+        content:
+          "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/0fc849f9-fdf1-493a-90a0-6589c1944ce3",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/0fc849f9-fdf1-493a-90a0-6589c1944ce3",
+      },
     ],
     links: [
       {

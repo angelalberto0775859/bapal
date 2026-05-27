@@ -44,7 +44,7 @@ export function Events() {
   const [captchaReady, setCaptchaReady] = useState(false);
   const captchaContainerRef = useRef<HTMLDivElement | null>(null);
   const captchaWidgetIdRef = useRef<number | null>(null);
-  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | undefined;
+  const recaptchaSiteKey = (import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | undefined)?.trim();
 
   useEffect(() => {
     if (!recaptchaSiteKey) return;
@@ -82,8 +82,8 @@ export function Events() {
     if (!name) return;
 
     if (!recaptchaSiteKey) {
-      toast.error("Falta configurar Google reCAPTCHA", {
-        description: "Agrega VITE_RECAPTCHA_SITE_KEY para activar el formulario.",
+      toast.error("Formulario temporalmente en revisión", {
+        description: "Escríbenos por WhatsApp y te cotizamos el evento de inmediato.",
       });
       return;
     }
@@ -229,9 +229,21 @@ export function Events() {
               {recaptchaSiteKey ? (
                 <div ref={captchaContainerRef} />
               ) : (
-                <p className="text-sm text-destructive">
-                  Falta configurar VITE_RECAPTCHA_SITE_KEY para activar el reCAPTCHA.
-                </p>
+                <div className="rounded-sm border border-accent/20 bg-accent/5 p-4 text-sm text-muted-foreground">
+                  <p className="font-medium text-foreground">Verificación segura pendiente</p>
+                  <p className="mt-1">
+                    Para cotizar ahora, envíanos los detalles por WhatsApp y te respondemos con una
+                    propuesta personalizada.
+                  </p>
+                  <a
+                    href="https://wa.me/525567857724?text=Hola%20BaPal%2C%20quiero%20cotizar%20un%20evento."
+                    className="mt-3 inline-flex text-xs font-semibold uppercase tracking-widest text-accent hover:text-foreground"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Cotizar por WhatsApp
+                  </a>
+                </div>
               )}
             </div>
           </div>

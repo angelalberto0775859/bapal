@@ -4,15 +4,11 @@ import { cart } from "@/lib/cart-store";
 import { formatMXN } from "@/lib/checkout";
 import { toast } from "sonner";
 
-
-
 export function Recommendations() {
   // Find the exact products in our database
   const bestSellers = useMemo(() => {
     const ids = ["hoj-1", "dul-1", "bis-1"];
-    return ids
-      .map((id) => products.find((p) => p.id === id))
-      .filter(Boolean) as typeof products;
+    return ids.map((id) => products.find((p) => p.id === id)).filter(Boolean) as typeof products;
   }, []);
 
   const itemsWithCustomMeta = useMemo(() => {
@@ -23,7 +19,8 @@ export function Recommendations() {
       },
       {
         tag: "Favorito Tradicional",
-        customDesc: "Masa brioche de fermentación lenta de 48h con costra artesanal y vainilla de Papantla.",
+        customDesc:
+          "Masa brioche de fermentación lenta de 48h con costra artesanal y vainilla de Papantla.",
       },
       {
         tag: "Recomendación del Chef",
@@ -37,16 +34,16 @@ export function Recommendations() {
         ...product,
         tag: info.tag,
         customDesc: info.customDesc,
-        imageSrc: product.image,
+        imageSrc: product.image ? `${product.image}?v=paper` : undefined,
       };
     });
   }, [bestSellers]);
 
-  function addToCart(product: typeof products[0]) {
+  function addToCart(product: (typeof products)[0]) {
     const firstVariant = product.variants?.[0];
     cart.add(product, firstVariant);
-    toast.success("Añadido al carrito", { 
-      description: `${product.name} ${firstVariant ? `(${firstVariant.name})` : ""}` 
+    toast.success("Añadido al carrito", {
+      description: `${product.name} ${firstVariant ? `(${firstVariant.name})` : ""}`,
     });
   }
 
@@ -59,13 +56,14 @@ export function Recommendations() {
           <p className="text-xs tracking-[0.3em] text-accent uppercase mb-4">Selección Premium</p>
           <h2 className="font-serif text-4xl md:text-5xl">Los Favoritos de la Casa</h2>
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            Descubre las piezas que se han convertido en las preferidas de nuestros clientes habituales. Recién horneadas y listas para disfrutar.
+            Descubre las piezas que se han convertido en las preferidas de nuestros clientes
+            habituales. Recién horneadas y listas para disfrutar.
           </p>
         </div>
 
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-center">
           {itemsWithCustomMeta.map((item, index) => (
-            <article 
+            <article
               key={item.id}
               className="bg-card border border-border p-5 flex flex-col sm:flex-row gap-5 group hover:border-foreground/45 transition-all duration-300 hover:shadow-md md:p-6 rounded-sm animate-card-in opacity-0"
               style={{ animationDelay: `${index * 100}ms` }}
@@ -83,7 +81,7 @@ export function Recommendations() {
                   </span>
                 </div>
               )}
-              
+
               <div className="flex flex-col flex-1 min-w-0 justify-between text-center sm:text-left">
                 <div>
                   <h3 className="font-serif text-xl md:text-2xl leading-tight truncate transition-colors duration-300 group-hover:text-accent">
@@ -93,11 +91,15 @@ export function Recommendations() {
                     {item.customDesc}
                   </p>
                 </div>
- 
+
                 <div className="pt-4 flex items-center justify-between border-t border-border/40 mt-4">
                   <div>
-                    <span className="text-[9px] uppercase tracking-widest text-muted-foreground block mb-0.5">Desde</span>
-                    <span className="font-serif text-lg md:text-xl font-medium">{formatMXN(item.price)}</span>
+                    <span className="text-[9px] uppercase tracking-widest text-muted-foreground block mb-0.5">
+                      Desde
+                    </span>
+                    <span className="font-serif text-lg md:text-xl font-medium">
+                      {formatMXN(item.price)}
+                    </span>
                   </div>
                   <button
                     onClick={() => addToCart(item)}

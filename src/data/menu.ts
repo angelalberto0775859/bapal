@@ -105,14 +105,6 @@ export const products: Product[] = [
     image: imgPalitoNuez,
   },
   {
-    id: "gal-5",
-    name: "Galleta Manteca 2",
-    description: "Galleta clásica de manteca con azúcar espolvoreada.",
-    price: 20,
-    category: "Galletería & Polvorones",
-    image: imgGalletaDeliciosa,
-  },
-  {
     id: "gal-6",
     name: "Rebanada de Mantequilla",
     description: "Suave pan de mantequilla untado y espolvoreado con azúcar.",
@@ -229,10 +221,7 @@ export const products: Product[] = [
     price: 28,
     category: "Pan Dulce Tradicional",
     image: imgBeso,
-    variants: [
-      { name: "Cajeta" },
-      { name: "Fresa" },
-    ],
+    variants: [{ name: "Cajeta" }, { name: "Fresa" }],
   },
   {
     id: "dul-9",
@@ -272,7 +261,8 @@ export const products: Product[] = [
   {
     id: "hoj-3",
     name: "Barquillo de Crema",
-    description: "Cono de hojaldre crujiente espolvoreado con azúcar, relleno de crema pastelera casera.",
+    description:
+      "Cono de hojaldre crujiente espolvoreado con azúcar, relleno de crema pastelera casera.",
     price: 30,
     category: "Cuernos & Hojaldres",
     image: imgBarquillo,

@@ -82,9 +82,7 @@ export function FloatingContact() {
         onClick={() => setOpen(!open)}
         aria-label={open ? "Cerrar menú de contacto" : "Abrir menú de contacto"}
         className={`flex items-center justify-center w-14 h-14 rounded-full shadow-xl transition-all duration-300 hover:scale-105 ${
-          open
-            ? "bg-muted text-foreground rotate-45"
-            : "bg-primary text-primary-foreground"
+          open ? "bg-muted text-foreground rotate-45" : "bg-primary text-primary-foreground"
         }`}
       >
         <MessageCircle className="w-6 h-6" />

@@ -5,8 +5,12 @@ export function BrandsCarousel() {
   return (
     <section id="alianzas" className="py-24 border-y border-border/60">
       <div className="max-w-7xl mx-auto px-6 text-center mb-14">
-        <p className="text-xs tracking-[0.3em] text-accent uppercase mb-4">Alianzas de Alta Calidad</p>
-        <h2 className="font-serif text-3xl md:text-5xl">Respaldados por los mejores ingredientes</h2>
+        <p className="text-xs tracking-[0.3em] text-accent uppercase mb-4">
+          Alianzas de Alta Calidad
+        </p>
+        <h2 className="font-serif text-3xl md:text-5xl">
+          Respaldados por los mejores ingredientes
+        </h2>
       </div>
       <div className="relative overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />

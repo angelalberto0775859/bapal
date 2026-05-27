@@ -74,7 +74,9 @@ export function generatePDF(folio: string, items: CartItem[], total: number) {
   y += 36;
   doc.setFontSize(8);
   doc.setTextColor(140);
-  doc.text("Gracias por elegir BaPal. Este documento es una nota de remisión digital.", W / 2, y, { align: "center" });
+  doc.text("Gracias por elegir BaPal. Este documento es una nota de remisión digital.", W / 2, y, {
+    align: "center",
+  });
 
   doc.save(`BaPal-${folio}.pdf`);
 }
@@ -87,7 +89,7 @@ export function buildWhatsappURL(folio: string, items: CartItem[], total: number
     `*Productos:*`,
     ...items.map(
       (i) =>
-        `• ${i.qty}× ${i.product.name}${i.variant ? ` — ${i.variant.name}` : ""}${i.variant?.brand ? ` (${i.variant.brand})` : ""} — ${formatMXN(i.unitPrice * i.qty)}`
+        `• ${i.qty}× ${i.product.name}${i.variant ? ` — ${i.variant.name}` : ""}${i.variant?.brand ? ` (${i.variant.brand})` : ""} — ${formatMXN(i.unitPrice * i.qty)}`,
     ),
     ``,
     `*Total neto:* ${formatMXN(total)}`,
