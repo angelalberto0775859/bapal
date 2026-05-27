@@ -35,7 +35,7 @@ export function PromoPopup() {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-end md:items-center justify-center p-4 transition-all duration-300 pointer-events-auto bg-black/45 backdrop-blur-[3px] ${
+      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 pointer-events-auto bg-black/45 backdrop-blur-[3px] ${
         show ? "opacity-100" : "opacity-0"
       }`}
       onClick={handleClose}
@@ -43,7 +43,6 @@ export function PromoPopup() {
       {/* Square Promotional Banner Card */}
       <div
         className={`bg-card border border-border/80 w-full max-w-[320px] aspect-square flex flex-col justify-between p-6 md:p-8 relative rounded-sm shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto
-          fixed bottom-4 left-4 right-4 md:relative md:bottom-auto md:left-auto md:right-auto
           ${show ? "translate-y-0 opacity-100 scale-100" : "translate-y-12 opacity-0 scale-95 md:translate-y-0"}`}
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
       >
@@ -87,7 +86,7 @@ export function PromoPopup() {
           <p className="text-[11px] text-muted-foreground leading-relaxed max-w-[240px] mx-auto mb-2">
             Aplica en tu primera compra celebrando nuestra nueva web.
           </p>
-          
+
           {/* Action Voucher Card */}
           <div className="bg-accent/5 border border-accent/10 py-1.5 px-3 rounded-sm text-[10px] text-foreground font-medium leading-snug max-w-[260px] mx-auto mb-3">
             📸 Toma captura de pantalla y enséñala en mostrador
@@ -99,11 +98,11 @@ export function PromoPopup() {
           {/* Progress bar to show 5s timer */}
           <div className="flex flex-col items-center gap-1">
             <div className="w-16 h-[2px] bg-border rounded-full overflow-hidden">
-              <div 
+              <div
                 className="h-full bg-accent transition-all duration-5000 ease-linear"
-                style={{ 
+                style={{
                   width: show ? "0%" : "100%",
-                  transitionDuration: "5000ms"
+                  transitionDuration: "5000ms",
                 }}
               />
             </div>
