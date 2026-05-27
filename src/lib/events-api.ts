@@ -132,11 +132,9 @@ export async function handleEventsApi(request: Request, env: unknown) {
   const typedEnv = (env || {}) as EventsEnv;
   const missing = requiredEnv(typedEnv);
   if (missing.length > 0) {
+    console.error("Missing env vars:", missing);
     return json(
-      {
-        error: "Configuración incompleta del servidor.",
-        missing,
-      },
+      { error: "Configuración incompleta del servidor." },
       { status: 500 },
     );
   }
@@ -160,6 +158,28 @@ export async function handleEventsApi(request: Request, env: unknown) {
 
   if (!payload.name || !payload.email || !payload.date || !payload.guests || !payload.service) {
     return json({ error: "Completa los campos obligatorios." }, { status: 400 });
+  }
+
+  const ALLOWED_SERVICES = ["Catering Corporativo", "Bodas & Banquetes", "Alta Repostería"];
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (
+    payload.name.length > 200 ||
+    payload.email.length > 200 ||
+    payload.date.length > 50 ||
+    payload.guests.length > 50 ||
+    payload.service.length > 100 ||
+    payload.message.length > 2000
+  ) {
+    return json({ error: "Algunos campos exceden el largo permitido." }, { status: 400 });
+  }
+
+  if (!EMAIL_RE.test(payload.email)) {
+    return json({ error: "Correo electrónico inválido." }, { status: 400 });
+  }
+
+  if (!ALLOWED_SERVICES.includes(payload.service)) {
+    return json({ error: "Servicio no válido." }, { status: 400 });
   }
 
   if (!payload.recaptchaToken) {
