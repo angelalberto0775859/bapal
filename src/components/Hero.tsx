@@ -7,24 +7,37 @@ export function Hero() {
         <div>
           <p className="text-xs tracking-[0.3em] text-accent uppercase mb-6">Panettería Boutique</p>
           <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] text-foreground">
-            El arte del pan,<br/>
+            El arte del pan,
+            <br />
             <em className="text-accent not-italic">elevado.</em>
           </h1>
           <p className="mt-8 text-lg text-muted-foreground max-w-md leading-relaxed">
-            Masa madre de fermentación lenta, ingredientes nobles y un horneado del día.
-            Para mesas exigentes y eventos memorables.
+            Masa madre de fermentación lenta, ingredientes nobles y un horneado del día. Para mesas
+            exigentes y eventos memorables.
           </p>
-          <div className="mt-10 flex gap-4">
-            <a href="#catalogo" className="px-6 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:bg-accent transition">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a
+              href="#catalogo"
+              className="inline-flex items-center justify-center text-center px-6 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:bg-accent transition"
+            >
               Explorar catálogo
             </a>
-            <a href="/eventos" className="px-6 py-3 rounded-full border border-foreground/20 text-sm font-medium hover:border-foreground transition">
+            <a
+              href="/eventos"
+              className="inline-flex items-center justify-center text-center px-6 py-3 rounded-full border border-foreground/20 text-sm font-medium hover:border-foreground transition"
+            >
               Eventos & Catering
             </a>
           </div>
         </div>
         <div className="relative">
-          <img src={hero} alt="Hogaza artesanal" className="w-full aspect-[4/3] sm:aspect-[4/5] object-cover rounded-sm shadow-2xl" width={1600} height={1200} />
+          <img
+            src={hero}
+            alt="Hogaza artesanal"
+            className="w-full aspect-[4/3] sm:aspect-[4/5] object-cover rounded-sm shadow-2xl"
+            width={1600}
+            height={1200}
+          />
           <div className="absolute -bottom-6 -left-6 hidden md:block polaroid w-40 rotate-[-4deg]">
             <div className="aspect-square bg-secondary" />
             <p className="font-serif text-xs text-center mt-2 text-muted-foreground">desde 2018</p>
