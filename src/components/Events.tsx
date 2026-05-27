@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import corp from "@/assets/catering-corporate.jpg";
 import weddings from "@/assets/catering-weddings.jpg";
 import pastry from "@/assets/catering-pastry.jpg";
 import { toast } from "sonner";
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      render: (container: HTMLElement, parameters: { sitekey: string }) => number;
+      getResponse: (widgetId?: number) => string;
+      reset: (widgetId?: number) => void;
+    };
+  }
+}
 
 const tabs = [
   {
@@ -10,37 +20,120 @@ const tabs = [
     label: "Catering Corporativo",
     img: corp,
     title: "Catering Corporativo & Mesas de Eventos",
-    body:
-      "Soluciones sofisticadas con panadería miniatura, estaciones de café de especialidad y bocadillos finos para reuniones empresariales o salas de eventos.",
+    body: "Soluciones sofisticadas con panadería miniatura, estaciones de café de especialidad y bocadillos finos para reuniones empresariales o salas de eventos.",
   },
   {
     id: "wed",
     label: "Bodas & Banquetes",
     img: weddings,
     title: "Bodas & Grandes Banquetes",
-    body:
-      "Pastelería de alta costura, diseños personalizados y barras de postres conceptuales que se adaptan a la paleta cromática de la celebración.",
+    body: "Pastelería de alta costura, diseños personalizados y barras de postres conceptuales que se adaptan a la paleta cromática de la celebración.",
   },
   {
     id: "pat",
     label: "Alta Repostería",
     img: pastry,
     title: "Alta Repostería en General",
-    body:
-      "Tartas finas, macarons franceses y pan rústico salado ideal para maridajes en cenas privadas y eventos íntimos.",
+    body: "Tartas finas, macarons franceses y pan rústico salado ideal para maridajes en cenas privadas y eventos íntimos.",
   },
 ];
 
 export function Events() {
   const [active, setActive] = useState(tabs[0]);
+  const [submitting, setSubmitting] = useState(false);
+  const [captchaReady, setCaptchaReady] = useState(false);
+  const captchaContainerRef = useRef<HTMLDivElement | null>(null);
+  const captchaWidgetIdRef = useRef<number | null>(null);
+  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | undefined;
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    if (!recaptchaSiteKey) return;
+
+    const existing = document.querySelector<HTMLScriptElement>("script[data-bapal-recaptcha]");
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+      script.async = true;
+      script.defer = true;
+      script.dataset.bapalRecaptcha = "true";
+      script.onload = () => setCaptchaReady(true);
+      document.head.appendChild(script);
+    } else {
+      setCaptchaReady(Boolean(window.grecaptcha));
+    }
+
+    const interval = window.setInterval(() => {
+      if (window.grecaptcha && captchaContainerRef.current && captchaWidgetIdRef.current === null) {
+        captchaWidgetIdRef.current = window.grecaptcha.render(captchaContainerRef.current, {
+          sitekey: recaptchaSiteKey,
+        });
+        setCaptchaReady(true);
+      }
+    }, 250);
+
+    return () => window.clearInterval(interval);
+  }, [recaptchaSiteKey]);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const name = String(fd.get("name") || "").trim();
     if (!name) return;
-    toast.success("Solicitud recibida", { description: "Te contactaremos en menos de 24 horas." });
-    e.currentTarget.reset();
+
+    if (!recaptchaSiteKey) {
+      toast.error("Falta configurar Google reCAPTCHA", {
+        description: "Agrega VITE_RECAPTCHA_SITE_KEY para activar el formulario.",
+      });
+      return;
+    }
+
+    const widgetId = captchaWidgetIdRef.current ?? undefined;
+    const recaptchaToken = window.grecaptcha?.getResponse(widgetId);
+    if (!recaptchaToken) {
+      toast.error("Confirma el reCAPTCHA", {
+        description: "Necesitamos verificar que la solicitud no sea spam.",
+      });
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const response = await fetch("/api/events", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email: String(fd.get("email") || "").trim(),
+          date: String(fd.get("date") || "").trim(),
+          guests: String(fd.get("guests") || "").trim(),
+          service: String(fd.get("service") || "").trim(),
+          message: String(fd.get("message") || "").trim(),
+          recaptchaToken,
+        }),
+      });
+
+      const result = (await response.json().catch(() => ({}))) as { error?: string };
+      if (!response.ok) {
+        throw new Error(result.error || "No se pudo enviar la solicitud.");
+      }
+
+      toast.success("Solicitud enviada", {
+        description: "La cotización se envió a panetteriabapal@gmail.com.",
+      });
+      form.reset();
+      window.grecaptcha?.reset(widgetId);
+    } catch (error) {
+      toast.error("No se pudo enviar", {
+        description:
+          error instanceof Error
+            ? error.message
+            : "Inténtalo de nuevo o escríbenos directamente por WhatsApp.",
+      });
+      window.grecaptcha?.reset(widgetId);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -94,9 +187,18 @@ export function Events() {
             <Field id="event-name" name="name" label="Nombre" required />
             <Field id="event-email" name="email" label="Correo" type="email" required />
             <Field id="event-date" name="date" label="Fecha del evento" type="date" required />
-            <Field id="event-guests" name="guests" label="Número de invitados" type="number" required />
+            <Field
+              id="event-guests"
+              name="guests"
+              label="Número de invitados"
+              type="number"
+              required
+            />
             <div className="md:col-span-2">
-              <label htmlFor="event-service" className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
+              <label
+                htmlFor="event-service"
+                className="block text-xs uppercase tracking-widest text-muted-foreground mb-2"
+              >
                 Tipo de servicio
               </label>
               <select
@@ -110,7 +212,10 @@ export function Events() {
               </select>
             </div>
             <div className="md:col-span-2">
-              <label htmlFor="event-message" className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
+              <label
+                htmlFor="event-message"
+                className="block text-xs uppercase tracking-widest text-muted-foreground mb-2"
+              >
                 Mensaje
               </label>
               <textarea
@@ -120,12 +225,22 @@ export function Events() {
                 className="w-full bg-transparent border-b border-border py-3 outline-none focus:border-accent transition resize-none"
               />
             </div>
+            <div className="md:col-span-2 min-h-[78px]">
+              {recaptchaSiteKey ? (
+                <div ref={captchaContainerRef} />
+              ) : (
+                <p className="text-sm text-destructive">
+                  Falta configurar VITE_RECAPTCHA_SITE_KEY para activar el reCAPTCHA.
+                </p>
+              )}
+            </div>
           </div>
           <button
             type="submit"
-            className="mt-10 px-8 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:bg-accent transition"
+            disabled={submitting || !captchaReady || !recaptchaSiteKey}
+            className="mt-10 px-8 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:bg-accent transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Solicitar propuesta
+            {submitting ? "Enviando..." : "Solicitar propuesta"}
           </button>
         </form>
       </div>
@@ -133,10 +248,27 @@ export function Events() {
   );
 }
 
-function Field({ id, name, label, type = "text", required }: { id: string; name: string; label: string; type?: string; required?: boolean }) {
+function Field({
+  id,
+  name,
+  label,
+  type = "text",
+  required,
+}: {
+  id: string;
+  name: string;
+  label: string;
+  type?: string;
+  required?: boolean;
+}) {
   return (
     <div>
-      <label htmlFor={id} className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">{label}</label>
+      <label
+        htmlFor={id}
+        className="block text-xs uppercase tracking-widest text-muted-foreground mb-2"
+      >
+        {label}
+      </label>
       <input
         id={id}
         name={name}

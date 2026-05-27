@@ -1,0 +1,5 @@
+VITE_RECAPTCHA_SITE_KEY=your_google_recaptcha_v2_site_key
+RECAPTCHA_SECRET_KEY=your_google_recaptcha_v2_secret_key
+RESEND_API_KEY=your_resend_api_key
+EVENTS_FROM_EMAIL=BaPal Eventos <eventos@bapal.mx>
+EVENTS_TO_EMAIL=panetteriabapal@gmail.com
