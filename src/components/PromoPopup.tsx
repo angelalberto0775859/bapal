@@ -6,20 +6,33 @@ export function PromoPopup() {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    // Show promo with a small delay after page loads
-    const startTimeout = setTimeout(() => {
-      setShouldRender(true);
-      setShow(true);
-    }, 800);
+    const cookiesAccepted = localStorage.getItem("bapal_cookies_accepted") === "true";
 
-    // Auto close after 5 seconds (5000ms) + 800ms start delay = 5800ms
-    const closeTimeout = setTimeout(() => {
-      handleClose();
-    }, 5800);
+    let startTimeout: ReturnType<typeof setTimeout>;
+    let closeTimeout: ReturnType<typeof setTimeout>;
+
+    const trigger = (delay: number) => {
+      startTimeout = setTimeout(() => {
+        setShouldRender(true);
+        setShow(true);
+      }, delay);
+      closeTimeout = setTimeout(() => {
+        handleClose();
+      }, delay + 5000);
+    };
+
+    const onAccepted = () => trigger(600);
+
+    if (cookiesAccepted) {
+      trigger(800);
+    } else {
+      window.addEventListener("bapal:cookies-accepted", onAccepted, { once: true });
+    }
 
     return () => {
       clearTimeout(startTimeout);
       clearTimeout(closeTimeout);
+      window.removeEventListener("bapal:cookies-accepted", onAccepted);
     };
   }, []);
 
