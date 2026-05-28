@@ -1,5 +1,5 @@
 import hero from "@/assets/hero-bread.jpg";
-
+import bakeryInterior from "@/assets/bakery-interior.jpg";
 export function Hero() {
   return (
     <section id="top" className="relative pt-32 pb-24 md:pt-40 md:pb-32">
@@ -39,7 +39,14 @@ export function Hero() {
             height={1200}
           />
           <div className="absolute -bottom-6 -left-6 hidden md:block polaroid w-40 rotate-[-4deg]">
-            <div className="aspect-square bg-secondary" />
+            <img
+              src={bakeryInterior}
+              alt="Interior de la panadería"
+              className="aspect-square object-cover rounded-sm"
+              width={160}
+              height={160}
+              loading="lazy"
+            />
             <p className="font-serif text-xs text-center mt-2 text-muted-foreground">desde 2018</p>
           </div>
         </div>
