@@ -76,10 +76,9 @@ export function Recommendations() {
                     className="w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
-                  <span className="absolute top-2 left-2 bg-accent text-accent-foreground text-[8px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium shadow-sm">
+                  <span className="absolute top-2 left-2 bg-accent text-accent-foreground text-[8px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium shadow-sm inline-flex items-center justify-center leading-none">
                     {item.tag}
                   </span>
-                  <span className="absolute top-2 left-2 bg-accent text-accent-foreground text-[8px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium shadow-sm inline-flex items-center justify-center leading-none">
               )}
 
               <div className="flex flex-col flex-1 min-w-0 justify-between text-center sm:text-left">
