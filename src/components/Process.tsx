@@ -2,6 +2,7 @@ import p1 from "@/assets/process-1.jpg";
 import p2 from "@/assets/process-2.jpg";
 import p3 from "@/assets/process-3.jpg";
 
+const steps = [
   {
     n: "01",
     title: "Selección Diaria",
