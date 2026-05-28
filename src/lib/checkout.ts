@@ -23,7 +23,7 @@ export function generatePDF(folio: string, items: CartItem[], total: number) {
   doc.setFontSize(9);
   doc.setTextColor(120);
   y += 14;
-  doc.text("PANETTERIA · BOUTIQUE", W / 2, y, { align: "center" });
+  doc.text("PANETTERIA · ARTESANAL", W / 2, y, { align: "center" });
 
   y += 28;
   doc.setDrawColor(220);

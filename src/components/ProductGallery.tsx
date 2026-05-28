@@ -21,7 +21,7 @@ export function ProductGallery() {
           <div>
             <p className="text-xs tracking-[0.3em] text-accent uppercase mb-4">Panes vendidos</p>
             <h2 className="font-serif text-4xl md:text-6xl leading-tight">
-              Antojo real, presentación boutique
+              Antojo real, presentación artesanal
             </h2>
           </div>
           <p className="text-muted-foreground leading-relaxed max-w-2xl md:ml-auto">

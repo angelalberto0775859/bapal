@@ -16,7 +16,7 @@ export const Route = createFileRoute("/eventos")({
       {
         name: "description",
         content:
-          "Catering exclusivo de panadería boutique y repostería fina para bodas, banquetes y eventos corporativos de alta gama.",
+          "Catering exclusivo de panadería artesanal y repostería fina para bodas, banquetes y eventos corporativos de alta gama.",
       },
     ],
   }),
