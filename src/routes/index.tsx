@@ -17,8 +17,6 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "BaPal — Panettería Boutique" },
-      {
       { title: "BaPal — Panettería" },
       {
         name: "description",
@@ -26,6 +24,8 @@ export const Route = createFileRoute("/")({
           "Panadería artesanal: ingredientes nobles y horneado del día. Catering para eventos premium.",
       },
       { property: "og:title", content: "BaPal — Panettería" },
+      {
+        property: "og:description",
         content: "El arte del pan, elevado. Catálogo, eventos y catering premium.",
       },
     ],
