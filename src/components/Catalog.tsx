@@ -154,26 +154,6 @@ export function Catalog() {
           </div>
         )}
 
-        {!isSearching && (
-          <div className="flex flex-wrap gap-2 justify-center mb-12">
-            {categories.map((c) => (
-              <button
-                key={c}
-                onClick={() => {
-                  setActive(c);
-                  setShowAll(false);
-                }}
-                className={`px-4 py-2 text-xs uppercase tracking-widest rounded-full border transition cursor-pointer ${
-                  active === c
-                    ? "bg-foreground text-background border-foreground font-medium"
-                    : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-        )}
 
         </div>
 
