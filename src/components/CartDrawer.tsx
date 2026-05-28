@@ -17,7 +17,6 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
   return (
     <>
       <div
-      <div
         onClick={onClose}
         className={`fixed inset-0 bg-foreground/30 z-[60] transition-opacity ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       />
