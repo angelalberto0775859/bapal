@@ -338,7 +338,7 @@ export const products: Product[] = [
     variants: [
       { name: "Sencilla", image: imgChapata },
       { name: "Con Semillas", priceDelta: 4, image: imgChapataSemillas },
-      { name: "Rellena de Queso", priceDelta: 8 },
+      { name: "Chapa normal sencilla", priceDelta: 8 },
     ],
   },
 
