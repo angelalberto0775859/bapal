@@ -18,10 +18,10 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
     <>
       <div
         onClick={onClose}
-        className={`fixed inset-0 bg-foreground/30 z-50 transition-opacity ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 bg-foreground/30 z-[60] transition-opacity ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       />
       <aside
-        className={`fixed top-0 right-0 bottom-0 w-full sm:w-[440px] bg-background z-50 shadow-2xl transition-transform duration-500 flex flex-col ${
+        className={`fixed top-0 right-0 bottom-0 w-full sm:w-[440px] bg-background z-[70] shadow-2xl transition-transform duration-500 flex flex-col ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
