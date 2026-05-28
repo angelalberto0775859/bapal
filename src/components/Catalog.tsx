@@ -11,6 +11,7 @@ export function Catalog() {
   const [active, setActive] = useState<string>(categories[0]);
   const [query, setQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
+  const [highlighted, setHighlighted] = useState(0);
 
   const normalizedQuery = query.trim().toLowerCase();
   const isSearching = normalizedQuery.length > 0;
@@ -45,9 +46,27 @@ export function Catalog() {
     setActive(p.category);
     setQuery("");
     setShowAll(true);
+    setHighlighted(0);
     setTimeout(() => {
       document.getElementById(`product-${p.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 50);
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (!isSearching || suggestions.length === 0) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHighlighted((i) => (i + 1) % suggestions.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlighted((i) => (i - 1 + suggestions.length) % suggestions.length);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      selectSuggestion(suggestions[highlighted]);
+    } else if (e.key === "Escape") {
+      setQuery("");
+      setHighlighted(0);
+    }
   }
 
   return (
