@@ -8,8 +8,8 @@ export function AnnouncementBanner() {
   const announcements = useMemo(
     () => [
       "✨ ¡Celebramos la apertura de nuestra página web! Explora el catálogo en línea. 🥖",
-      "🎉 Eventos y Catering Premium: Lleva la alta panadería a tus reuniones. 🥐",
-      "🕒 Horneo diario con masa madre de fermentación lenta. ¡Pedidos listos hoy! 🥖",
+      "🎉 Eventos y Catering: Lleva el mejor pan artesanal a tus reuniones. 🥐",
+      "🕒 Horneo diario con ingredientes frescos. ¡Pide hoy y disfruta! 🥖",
     ],
     [],
   );
