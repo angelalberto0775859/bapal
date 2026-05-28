@@ -29,9 +29,51 @@ export const Route = createFileRoute("/")({
         content: "El arte del pan, elevado. Catálogo, eventos y catering premium.",
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://bapal.mx/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Bakery",
+          name: "BaPal Panettería Boutique",
+          description:
+            "Panadería boutique de alta gama: masa madre de 48h, ingredientes nobles y catering para eventos premium.",
+          url: "https://bapal.mx",
+          image:
+            "https://storage.googleapis.com/gpt-engineer-file-uploads/HqYWfn1frdbcCrJM8AUXvb21OiC3/social-images/social-1779980553228-Captura_de_pantalla_2026-05-28_a_la(s)_9.02.13_a.m..webp",
+          servesCuisine: ["Panadería", "Repostería", "Catering"],
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
+              opens: "08:00",
+              closes: "20:00",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: "Saturday",
+              opens: "08:00",
+              closes: "21:00",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: "Sunday",
+              opens: "08:00",
+              closes: "20:00",
+            },
+          ],
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            availableLanguage: ["Spanish"],
+          },
+        }),
+      },
+    ],
   }),
 });
+
 
 function Index() {
   const [cartOpen, setCartOpen] = useState(false);
