@@ -16,9 +16,6 @@ export function Recommendations() {
       {
         tag: "Más vendido",
         customDesc: "Crujiente hojaldre francés de 81 capas con una variedad de rellenos selectos.",
-      {
-        tag: "Más vendido",
-        customDesc: "Crujiente hojaldre francés de 81 capas con una variedad de rellenos selectos.",
       },
       {
         tag: "Favorito",
