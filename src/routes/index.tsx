@@ -17,13 +17,13 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "BaPal — Panettería Boutique" },
+      { title: "BaPal — Panettería" },
       {
         name: "description",
         content:
-          "Panadería boutique de alta gama: masa madre de 48h, ingredientes nobles y catering para eventos premium.",
+          "Panadería artesanal: ingredientes nobles y horneado del día. Catering para eventos premium.",
       },
-      { property: "og:title", content: "BaPal — Panettería Boutique" },
+      { property: "og:title", content: "BaPal — Panettería" },
       {
         property: "og:description",
         content: "El arte del pan, elevado. Catálogo, eventos y catering premium.",
@@ -36,9 +36,9 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Bakery",
-          name: "BaPal Panettería Boutique",
+          name: "BaPal Panettería",
           description:
-            "Panadería boutique de alta gama: masa madre de 48h, ingredientes nobles y catering para eventos premium.",
+            "Panadería artesanal: ingredientes nobles y horneado del día. Catering para eventos premium.",
           url: "https://bapal.mx",
           image:
             "https://storage.googleapis.com/gpt-engineer-file-uploads/HqYWfn1frdbcCrJM8AUXvb21OiC3/social-images/social-1779980553228-Captura_de_pantalla_2026-05-28_a_la(s)_9.02.13_a.m..webp",

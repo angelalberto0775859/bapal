@@ -39,7 +39,8 @@ import imgBisquet from "@/assets/Panes/edited/pan-110847-am-5.jpg";
 import imgBisquetIntegral from "@/assets/Panes/edited/pan-110848-am-6.jpg";
 import imgCocol from "@/assets/Panes/edited/pan-110848-am-7.jpg";
 
-import imgChapata from "@/assets/Panes/edited/pan-110850-am-9.jpg";
+import imgChapata from "@/assets/Panes/edited/chapata-real.jpg";
+import imgBolillo from "@/assets/Panes/edited/pan-110850-am-9.jpg";
 import imgChapataSemillas from "@/assets/Panes/edited/pan-110848-am-9.jpg";
 
 import imgPanque from "@/assets/Panes/edited/pan-110850-am-8.jpg";
@@ -59,7 +60,7 @@ export const categories = [
   "Galletería & Polvorones",
   "Pan Dulce Tradicional",
   "Cuernos & Hojaldres",
-  "Bisquets & Cocoles",
+  "Cazuelas & Cocoles",
   "Salados & Chapatas",
   "Panqués & Repostería",
 ] as const;
@@ -90,8 +91,8 @@ export const products: Product[] = [
   },
   {
     id: "gal-3",
-    name: "Galleta Deliciosa",
-    description: "Galleta tradicional con un toque sutil de vainilla.",
+    name: "Polvorón de Cacahuate",
+    description: "Polvorón de textura arenosa con trozos de cacahuate tostado.",
     price: 22,
     category: "Galletería & Polvorones",
     image: imgGalletaDeliciosa,
@@ -122,24 +123,24 @@ export const products: Product[] = [
   },
   {
     id: "gal-8",
-    name: "Galleta Mordida",
-    description: "Galleta tradicional cubierta de azúcar glas y canela.",
+    name: "Palo de Manteca",
+    description: "Bastón crujiente elaborado con manteca y un toque de canela.",
     price: 20,
     category: "Galletería & Polvorones",
     image: imgGalletaMordida,
   },
   {
     id: "gal-9",
-    name: "Galleta Multi",
-    description: "Mezcla crujiente de semillas y cereales ligeros.",
+    name: "Reja de Manteca",
+    description: "Galleta de manteca con tejido tradicional y textura crujiente.",
     price: 24,
     category: "Galletería & Polvorones",
     image: imgGalletaMulti,
   },
   {
     id: "gal-10",
-    name: "Galleta Cazuela",
-    description: "Galleta cóncava rellena de jalea tradicional.",
+    name: "Deliciosa",
+    description: "Galleta cóncava rellena de jalea tradicional, deliciosa de principio a fin.",
     price: 22,
     category: "Galletería & Polvorones",
     image: imgGalletaCazuela,
@@ -148,8 +149,8 @@ export const products: Product[] = [
   // Pan Dulce Tradicional
   {
     id: "dul-1",
-    name: "Concha Boutique",
-    description: "Clásica concha de masa briochada súper esponjosa con cobertura artesanal.",
+    name: "Concha",
+    description: "Concha de masa esponjosa con cobertura artesanal.",
     price: 24,
     category: "Pan Dulce Tradicional",
     image: imgConchaVainilla,
@@ -192,8 +193,8 @@ export const products: Product[] = [
   },
   {
     id: "dul-5",
-    name: "Pan de Elote",
-    description: "Elaborado con granos de elote tierno, cremoso y aromático.",
+    name: "Pan tipo Elote",
+    description: "Pan suave y aromático con notas dulces tipo elote, cremoso por dentro.",
     price: 35,
     category: "Pan Dulce Tradicional",
     image: imgPanElote,
@@ -262,10 +263,14 @@ export const products: Product[] = [
     id: "hoj-3",
     name: "Barquillo de Crema",
     description:
-      "Cono de hojaldre crujiente espolvoreado con azúcar, relleno de crema pastelera casera.",
+      "Cono de hojaldre crujiente espolvoreado con azúcar. Disfrútalo solo o agrega crema pastelera casera.",
     price: 30,
     category: "Cuernos & Hojaldres",
     image: imgBarquillo,
+    variants: [
+      { name: "Sin relleno" },
+      { name: "Con crema pastelera", priceDelta: 8 },
+    ],
   },
   {
     id: "hoj-4",
@@ -303,10 +308,10 @@ export const products: Product[] = [
   // Bisquets & Cocoles
   {
     id: "bis-1",
-    name: "Bisquet Tradicional",
-    description: "Bisquet artesanal dorado por fuera, suave y denso por dentro.",
+    name: "Cazuela",
+    description: "Cazuela artesanal dorada por fuera, suave y densa por dentro.",
     price: 22,
-    category: "Bisquets & Cocoles",
+    category: "Cazuelas & Cocoles",
     image: imgBisquet,
     variants: [
       { name: "Sencillo", image: imgBisquet },
@@ -318,7 +323,7 @@ export const products: Product[] = [
     name: "Cocol de Anís",
     description: "Pan tradicional con notas aromáticas de anís y piloncillo.",
     price: 20,
-    category: "Bisquets & Cocoles",
+    category: "Cazuelas & Cocoles",
     image: imgCocol,
   },
 
@@ -358,8 +363,5 @@ export const products: Product[] = [
 export const brands = [
   "La Lechera",
   "Philadelphia",
-  "Cajeta Coronado",
-  "Carlota",
   "Nestlé Professional",
-  "Lyle's Golden",
 ];

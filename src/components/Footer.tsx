@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <img src={logo} alt="BaPal Panettería" className="h-16 w-auto mb-4" />
           <p className="text-sm text-muted-foreground max-w-xs mb-4">
-            Panettería boutique. Masa madre, ingredientes nobles y horneado del día.
+            Panettería. Ingredientes nobles y horneado del día.
           </p>
           <div className="flex gap-4">
             <a
@@ -33,17 +33,6 @@ export function Footer() {
         </div>
         <div className="text-sm text-muted-foreground space-y-2">
           <p className="uppercase text-xs tracking-widest text-foreground mb-3">Contacto</p>
-          <p>
-            WhatsApp:{" "}
-            <a
-              href="https://wa.me/525560660606"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition"
-            >
-              +52 55 6066 0606
-            </a>
-          </p>
           <p>
             <a href="mailto:panetteriabapal@gmail.com" className="hover:text-foreground transition">
               panetteriabapal@gmail.com

@@ -19,12 +19,11 @@ export function Recommendations() {
       },
       {
         tag: "Favorito",
-        customDesc:
-          "Masa brioche de fermentación lenta de 48h con costra artesanal y vainilla de Papantla.",
+        customDesc: "Masa brioche súper esponjosa con costra artesanal y un toque de vainilla de Papantla.",
       },
       {
         tag: "Recomendación",
-        customDesc: "Bisquet dorado de mantequilla pura, de miga densa y sabor inigualable.",
+        customDesc: "Cazuela dorada de mantequilla pura, de miga densa y sabor inigualable.",
       },
     ];
 

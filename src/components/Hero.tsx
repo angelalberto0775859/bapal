@@ -5,15 +5,14 @@ export function Hero() {
     <section id="top" className="relative pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <p className="text-xs tracking-[0.3em] text-accent uppercase mb-6">Panettería Boutique</p>
+          <p className="text-xs tracking-[0.3em] text-accent uppercase mb-6">Panettería</p>
           <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] text-foreground">
             El arte del pan,
             <br />
             <em className="text-accent not-italic">elevado.</em>
           </h1>
           <p className="mt-8 text-lg text-muted-foreground max-w-md leading-relaxed">
-            Masa madre de fermentación lenta, ingredientes nobles y un horneado del día. Para mesas
-            exigentes y eventos memorables.
+            Ingredientes nobles y horneado del día. Para mesas exigentes y eventos memorables.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
