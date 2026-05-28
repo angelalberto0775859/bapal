@@ -11,6 +11,7 @@ export function Recommendations() {
     return ids.map((id) => products.find((p) => p.id === id)).filter(Boolean) as typeof products;
   }, []);
 
+  const itemsWithCustomMeta = useMemo(() => {
     const meta = [
       {
         tag: "Más vendido",
@@ -23,10 +24,6 @@ export function Recommendations() {
       },
       {
         tag: "Recomendación",
-        customDesc: "Bisquet dorado de mantequilla pura, de miga densa y sabor inigualable.",
-      },
-    ];
-        tag: "Recomendación del Chef",
         customDesc: "Bisquet dorado de mantequilla pura, de miga densa y sabor inigualable.",
       },
     ];
