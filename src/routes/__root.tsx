@@ -103,6 +103,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/0fc849f9-fdf1-493a-90a0-6589c1944ce3",
       },
+      { name: "description", content: "BaPal es una panadería que combina tradición, sabor y creatividad para ofrecer pan recién horneado y momentos que se disfrutan en cada bocado." },
+      { property: "og:description", content: "BaPal es una panadería que combina tradición, sabor y creatividad para ofrecer pan recién horneado y momentos que se disfrutan en cada bocado." },
+      { name: "twitter:description", content: "BaPal es una panadería que combina tradición, sabor y creatividad para ofrecer pan recién horneado y momentos que se disfrutan en cada bocado." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/HqYWfn1frdbcCrJM8AUXvb21OiC3/social-images/social-1779980553228-Captura_de_pantalla_2026-05-28_a_la(s)_9.02.13_a.m..webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/HqYWfn1frdbcCrJM8AUXvb21OiC3/social-images/social-1779980553228-Captura_de_pantalla_2026-05-28_a_la(s)_9.02.13_a.m..webp" },
     ],
     links: [
       {
