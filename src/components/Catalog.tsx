@@ -10,24 +10,34 @@ const INITIAL_VISIBLE = 4;
 export function Catalog() {
   const [active, setActive] = useState<string>(categories[0]);
   const [query, setQuery] = useState("");
+  const [submitted, setSubmitted] = useState("");
   const [showAll, setShowAll] = useState(false);
   const [highlighted, setHighlighted] = useState(0);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const normalizedQuery = query.trim().toLowerCase();
-  const isSearching = normalizedQuery.length > 0;
+  const normalizedSubmitted = submitted.trim().toLowerCase();
+  const isTyping = normalizedQuery.length > 0;
+  const isSearching = normalizedSubmitted.length > 0;
+
+  function matches(p: Product, q: string) {
+    return (
+      p.name.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      !!p.variants?.some((v) => v.name.toLowerCase().includes(q))
+    );
+  }
 
   const suggestions = useMemo(() => {
+    if (!isTyping) return [];
+    return products.filter((p) => matches(p, normalizedQuery)).slice(0, 6);
+  }, [normalizedQuery, isTyping]);
+
+  const searchResults = useMemo(() => {
     if (!isSearching) return [];
-    return products
-      .filter(
-        (p) =>
-          p.name.toLowerCase().includes(normalizedQuery) ||
-          p.description.toLowerCase().includes(normalizedQuery) ||
-          p.category.toLowerCase().includes(normalizedQuery) ||
-          p.variants?.some((v) => v.name.toLowerCase().includes(normalizedQuery)),
-      )
-      .slice(0, 6);
-  }, [normalizedQuery, isSearching]);
+    return products.filter((p) => matches(p, normalizedSubmitted));
+  }, [normalizedSubmitted, isSearching]);
 
   const categoryProducts = useMemo(
     () => products.filter((p) => p.category === active),
@@ -35,7 +45,7 @@ export function Catalog() {
   );
 
   const visible = isSearching
-    ? suggestions
+    ? searchResults
     : showAll
       ? categoryProducts
       : categoryProducts.slice(0, INITIAL_VISIBLE);
@@ -43,31 +53,43 @@ export function Catalog() {
   const hasMore = !isSearching && !showAll && categoryProducts.length > INITIAL_VISIBLE;
 
   function selectSuggestion(p: Product) {
-    setActive(p.category);
-    setQuery("");
-    setShowAll(true);
+    setSubmitted(p.name);
+    setQuery(p.name);
+    setShowSuggestions(false);
     setHighlighted(0);
-    setTimeout(() => {
-      document.getElementById(`product-${p.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 50);
+  }
+
+  function submitSearch() {
+    setSubmitted(query);
+    setShowSuggestions(false);
+  }
+
+  function clearSearch() {
+    setQuery("");
+    setSubmitted("");
+    setShowSuggestions(false);
+    setHighlighted(0);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (!isSearching || suggestions.length === 0) return;
-    if (e.key === "ArrowDown") {
+    if (e.key === "ArrowDown" && suggestions.length > 0) {
       e.preventDefault();
       setHighlighted((i) => (i + 1) % suggestions.length);
-    } else if (e.key === "ArrowUp") {
+    } else if (e.key === "ArrowUp" && suggestions.length > 0) {
       e.preventDefault();
       setHighlighted((i) => (i - 1 + suggestions.length) % suggestions.length);
     } else if (e.key === "Enter") {
       e.preventDefault();
-      selectSuggestion(suggestions[highlighted]);
+      if (suggestions.length > 0 && showSuggestions) {
+        selectSuggestion(suggestions[highlighted]);
+      } else {
+        submitSearch();
+      }
     } else if (e.key === "Escape") {
-      setQuery("");
-      setHighlighted(0);
+      clearSearch();
     }
   }
+
 
   return (
     <section id="catalogo" className="py-32 bg-secondary/40">
@@ -79,18 +101,20 @@ export function Catalog() {
 
         <div className="relative max-w-xl mx-auto mb-10">
           <div className="relative">
+          <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="text"
               value={query}
-              onChange={(e) => { setQuery(e.target.value); setHighlighted(0); }}
+              onChange={(e) => { setQuery(e.target.value); setHighlighted(0); setShowSuggestions(true); }}
+              onFocus={() => setShowSuggestions(true)}
               onKeyDown={handleKeyDown}
               placeholder="Buscar un pan, sabor o categoría..."
               className="w-full pl-11 pr-10 py-3 bg-card border border-border rounded-full text-sm focus:outline-none focus:border-foreground transition"
             />
-            {query && (
+            {(query || submitted) && (
               <button
-                onClick={() => setQuery("")}
+                onClick={clearSearch}
                 className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground cursor-pointer"
                 aria-label="Limpiar búsqueda"
               >
@@ -98,7 +122,7 @@ export function Catalog() {
               </button>
             )}
           </div>
-          {isSearching && suggestions.length > 0 && (
+          {isTyping && showSuggestions && suggestions.length > 0 && (
             <div className="absolute z-10 left-0 right-0 mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden">
               {suggestions.map((p, idx) => (
                 <button
@@ -120,11 +144,37 @@ export function Catalog() {
               ))}
             </div>
           )}
-          {isSearching && suggestions.length === 0 && (
-            <div className="absolute z-10 left-0 right-0 mt-2 bg-card border border-border rounded-lg shadow-lg px-4 py-3 text-sm text-muted-foreground text-center">
-              Sin resultados para "{query}"
-            </div>
-          )}
+        </div>
+
+        {isSearching && (
+          <div className="text-center mb-8 text-sm text-muted-foreground">
+            {searchResults.length > 0
+              ? `${searchResults.length} resultado${searchResults.length === 1 ? "" : "s"} para "${submitted}"`
+              : `Sin resultados para "${submitted}"`}
+          </div>
+        )}
+
+        {!isSearching && (
+          <div className="flex flex-wrap gap-2 justify-center mb-12">
+            {categories.map((c) => (
+              <button
+                key={c}
+                onClick={() => {
+                  setActive(c);
+                  setShowAll(false);
+                }}
+                className={`px-4 py-2 text-xs uppercase tracking-widest rounded-full border transition cursor-pointer ${
+                  active === c
+                    ? "bg-foreground text-background border-foreground font-medium"
+                    : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        )}
+
         </div>
 
         {!isSearching && (
