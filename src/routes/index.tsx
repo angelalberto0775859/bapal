@@ -19,13 +19,13 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "BaPal — Panettería Boutique" },
       {
+      { title: "BaPal — Panettería" },
+      {
         name: "description",
         content:
-          "Panadería boutique de alta gama: masa madre de 48h, ingredientes nobles y catering para eventos premium.",
+          "Panadería artesanal: ingredientes nobles y horneado del día. Catering para eventos premium.",
       },
-      { property: "og:title", content: "BaPal — Panettería Boutique" },
-      {
-        property: "og:description",
+      { property: "og:title", content: "BaPal — Panettería" },
         content: "El arte del pan, elevado. Catálogo, eventos y catering premium.",
       },
     ],
