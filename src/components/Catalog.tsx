@@ -11,6 +11,7 @@ export function Catalog() {
   const [active, setActive] = useState<string>(categories[0]);
   const [query, setQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
+  const [highlighted, setHighlighted] = useState(0);
 
   const normalizedQuery = query.trim().toLowerCase();
   const isSearching = normalizedQuery.length > 0;
@@ -45,9 +46,27 @@ export function Catalog() {
     setActive(p.category);
     setQuery("");
     setShowAll(true);
+    setHighlighted(0);
     setTimeout(() => {
       document.getElementById(`product-${p.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 50);
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (!isSearching || suggestions.length === 0) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHighlighted((i) => (i + 1) % suggestions.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlighted((i) => (i - 1 + suggestions.length) % suggestions.length);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      selectSuggestion(suggestions[highlighted]);
+    } else if (e.key === "Escape") {
+      setQuery("");
+      setHighlighted(0);
+    }
   }
 
   return (
@@ -64,7 +83,8 @@ export function Catalog() {
             <input
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => { setQuery(e.target.value); setHighlighted(0); }}
+              onKeyDown={handleKeyDown}
               placeholder="Buscar un pan, sabor o categoría..."
               className="w-full pl-11 pr-10 py-3 bg-card border border-border rounded-full text-sm focus:outline-none focus:border-foreground transition"
             />
@@ -80,11 +100,13 @@ export function Catalog() {
           </div>
           {isSearching && suggestions.length > 0 && (
             <div className="absolute z-10 left-0 right-0 mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden">
-              {suggestions.map((p) => (
+              {suggestions.map((p, idx) => (
                 <button
                   key={p.id}
                   onClick={() => selectSuggestion(p)}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-secondary transition cursor-pointer border-b border-border/40 last:border-0"
+                  className={`w-full flex items-center gap-3 px-4 py-3 text-left transition cursor-pointer border-b border-border/40 last:border-0 ${
+                    idx === highlighted ? "bg-secondary" : "hover:bg-secondary"
+                  }`}
                 >
                   {p.image && (
                     <img src={p.image} alt={p.name} className="w-10 h-10 object-cover rounded-sm" />
