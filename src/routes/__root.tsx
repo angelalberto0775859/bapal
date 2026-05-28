@@ -73,25 +73,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BaPal Panettería Boutique" },
+      { title: "BaPal Panettería" },
       {
         name: "description",
         content:
-          "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
+          "Panadería artesanal de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
       },
-      { property: "og:title", content: "BaPal Panettería Boutique" },
+      { property: "og:title", content: "BaPal Panettería" },
       {
         property: "og:description",
         content:
-          "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
+          "Panadería artesanal de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "BaPal Panettería Boutique" },
+      { name: "twitter:title", content: "BaPal Panettería" },
       {
         name: "twitter:description",
         content:
-          "Panadería boutique de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
+          "Panadería artesanal de alta gama, ingredientes nobles de alta calidad y catering para eventos premium.",
       },
       {
         property: "og:image",
