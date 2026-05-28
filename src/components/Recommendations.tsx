@@ -79,7 +79,7 @@ export function Recommendations() {
                   <span className="absolute top-2 left-2 bg-accent text-accent-foreground text-[8px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium shadow-sm">
                     {item.tag}
                   </span>
-                </div>
+                  <span className="absolute top-2 left-2 bg-accent text-accent-foreground text-[8px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium shadow-sm inline-flex items-center justify-center leading-none">
               )}
 
               <div className="flex flex-col flex-1 min-w-0 justify-between text-center sm:text-left">
