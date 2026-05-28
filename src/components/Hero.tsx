@@ -14,8 +14,6 @@ export function Hero() {
           <p className="mt-8 text-lg text-muted-foreground max-w-md leading-relaxed">
             Ingredientes nobles y horneado del día. Para mesas exigentes y eventos memorables.
           </p>
-            exigentes y eventos memorables.
-          </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
               href="#catalogo"
