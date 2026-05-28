@@ -27,8 +27,8 @@ export function Nav({ onCart }: { onCart: () => void }) {
       <div className="backdrop-blur-md bg-background/70 border-b border-border/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-            <img src={logo} alt="BaPal Panettería" className="h-10 w-auto" />
-            <span className="font-serif text-xl tracking-wide">BaPal</span>
+            <img src={logo} alt="BaPal Panettería" className="h-14 md:h-16 w-auto" />
+            <span className="font-serif text-2xl md:text-3xl tracking-wide">BaPal</span>
           </a>
 
           <nav className="hidden md:flex items-center gap-10 text-sm text-muted-foreground">
