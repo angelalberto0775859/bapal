@@ -25,6 +25,8 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        <div className="flex items-center justify-between px-6 py-5 border-b border-border">
+          <h3 className="font-serif text-2xl">Tu carrito</h3>
           <button
             onClick={onClose}
             className="p-2 hover:bg-secondary rounded-full"
