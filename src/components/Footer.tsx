@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <img src={logo} alt="BaPal Panettería" className="h-16 w-auto mb-4" />
           <p className="text-sm text-muted-foreground max-w-xs mb-4">
-            Panettería boutique. Masa madre, ingredientes nobles y horneado del día.
+            Panettería. Ingredientes nobles y horneado del día.
           </p>
           <div className="flex gap-4">
             <a
