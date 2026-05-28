@@ -79,25 +79,14 @@ export function Catalog() {
 
         <div className="relative max-w-xl mx-auto mb-10">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => { setQuery(e.target.value); setHighlighted(0); }}
+              onKeyDown={handleKeyDown}
               placeholder="Buscar un pan, sabor o categoría..."
               className="w-full pl-11 pr-10 py-3 bg-card border border-border rounded-full text-sm focus:outline-none focus:border-foreground transition"
             />
-            {query && (
-              <button
-                onClick={() => setQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground cursor-pointer"
-                aria-label="Limpiar búsqueda"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
-          </div>
-          {isSearching && suggestions.length > 0 && (
             <div className="absolute z-10 left-0 right-0 mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden">
               {suggestions.map((p) => (
                 <button
