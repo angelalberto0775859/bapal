@@ -1,11 +1,11 @@
-# BaPal — Panettería Boutique
+# BaPal — Panettería
 
-> Panadería boutique de alta gama: masa madre de 48h, ingredientes nobles y catering premium para eventos corporativos y sociales.
+> Panadería artesanal de alta gama: ingredientes nobles y catering premium para eventos corporativos y sociales.
 
 ## Pages
 
-- [Inicio](/): Experiencia BaPal — arte del pan, alianzas de marca y catálogo boutique.
-- [Catálogo](/#catalogo): Pan artesanal, pasteles y alternativas gourmet con variantes de marca aliada.
+- [Inicio](/): Experiencia BaPal — arte del pan, alianzas de marca y catálogo artesanal.
+- [Catálogo](/#catalogo): Pan artesanal, pasteles y alternativas gourmet.
 - [Eventos](/#eventos): Catering corporativo, bodas y repostería personalizada. Cotización en línea.
 
 ## Optional

@@ -15,7 +15,7 @@ export const Route = createFileRoute("/privacidad")({
       {
         name: "description",
         content:
-          "Consulta el aviso de privacidad, política de cookies y el tratamiento de datos personales de BaPal Panettería Boutique.",
+          "Consulta el aviso de privacidad, política de cookies y el tratamiento de datos personales de BaPal Panettería.",
       },
     ],
   }),
@@ -37,7 +37,7 @@ function PrivacidadPage() {
               Aviso de Privacidad
             </h1>
             <p className="text-muted-foreground text-sm max-w-lg mx-auto leading-relaxed">
-              En BaPal Panettería Boutique valoramos y respetamos tu privacidad. Conoce cómo
+              En BaPal Panettería valoramos y respetamos tu privacidad. Conoce cómo
               recopilamos, utilizamos y protegemos tu información.
             </p>
           </div>
@@ -48,7 +48,7 @@ function PrivacidadPage() {
                 1. Identidad y Domicilio del Responsable
               </h2>
               <p>
-                BaPal Panettería Boutique (en adelante "BaPal"), con domicilio en Av. Alfredo V.
+                BaPal Panettería (en adelante "BaPal"), con domicilio en Av. Alfredo V.
                 Bonfil 157, Coapa, Presidentes Ejidales 2da Secc, Coyoacán, 04470 Ciudad de México,
                 CDMX, es responsable de recabar sus datos personales, del uso que se le dé a los
                 mismos y de su protección.

@@ -8,8 +8,8 @@ export function AnnouncementBanner() {
   const announcements = useMemo(
     () => [
       "✨ ¡Celebramos la apertura de nuestra página web! Explora el catálogo en línea. 🥖",
-      "🎉 Eventos y Catering Premium: Lleva la alta panadería a tus reuniones. 🥐",
-      "🕒 Horneo diario con masa madre de fermentación lenta. ¡Pedidos listos hoy! 🥖",
+      "🎉 Eventos y Catering: Lleva el mejor pan artesanal a tus reuniones. 🥐",
+      "🕒 Horneo diario con ingredientes frescos. ¡Pide hoy y disfruta! 🥖",
     ],
     [],
   );
@@ -43,7 +43,7 @@ export function AnnouncementBanner() {
       {/* Sparkle decorative icon left */}
       <div className="hidden md:flex items-center gap-1.5 opacity-90">
         <Sparkles className="w-3.5 h-3.5 text-accent-foreground animate-pulse" />
-        <span>Boutique</span>
+        <span>Artesanal</span>
       </div>
 
       <div className="flex items-center justify-center flex-1 max-w-3xl mx-auto">
