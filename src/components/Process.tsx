@@ -2,12 +2,11 @@ import p1 from "@/assets/process-1.jpg";
 import p2 from "@/assets/process-2.jpg";
 import p3 from "@/assets/process-3.jpg";
 
-const steps = [
   {
     n: "01",
-    title: "Masa Madre Selecta",
+    title: "Selección Diaria",
     img: p1,
-    body: "Maduración y fermentación lenta controlada de más de 48 horas. Una miga aireada, sabor profundo y digestibilidad perfecta.",
+    body: "Cada mañana elegimos los ingredientes más frescos para nuestras piezas: harinas seleccionadas, mantequilla pura y rellenos artesanales.",
   },
   {
     n: "02",
