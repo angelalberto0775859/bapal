@@ -1,12 +1,54 @@
 import { useMemo, useState } from "react";
+import { Search, X } from "lucide-react";
 import { categories, products, type Product } from "@/data/menu";
 import { cart } from "@/lib/cart-store";
 import { formatMXN } from "@/lib/checkout";
 import { toast } from "sonner";
 
+const INITIAL_VISIBLE = 4;
+
 export function Catalog() {
   const [active, setActive] = useState<string>(categories[0]);
-  const filtered = useMemo(() => products.filter((p) => p.category === active), [active]);
+  const [query, setQuery] = useState("");
+  const [showAll, setShowAll] = useState(false);
+
+  const normalizedQuery = query.trim().toLowerCase();
+  const isSearching = normalizedQuery.length > 0;
+
+  const suggestions = useMemo(() => {
+    if (!isSearching) return [];
+    return products
+      .filter(
+        (p) =>
+          p.name.toLowerCase().includes(normalizedQuery) ||
+          p.description.toLowerCase().includes(normalizedQuery) ||
+          p.category.toLowerCase().includes(normalizedQuery) ||
+          p.variants?.some((v) => v.name.toLowerCase().includes(normalizedQuery)),
+      )
+      .slice(0, 6);
+  }, [normalizedQuery, isSearching]);
+
+  const categoryProducts = useMemo(
+    () => products.filter((p) => p.category === active),
+    [active],
+  );
+
+  const visible = isSearching
+    ? suggestions
+    : showAll
+      ? categoryProducts
+      : categoryProducts.slice(0, INITIAL_VISIBLE);
+
+  const hasMore = !isSearching && !showAll && categoryProducts.length > INITIAL_VISIBLE;
+
+  function selectSuggestion(p: Product) {
+    setActive(p.category);
+    setQuery("");
+    setShowAll(true);
+    setTimeout(() => {
+      document.getElementById(`product-${p.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 50);
+  }
 
   return (
     <section id="catalogo" className="py-32 bg-secondary/40">
@@ -16,27 +58,101 @@ export function Catalog() {
           <h2 className="font-serif text-4xl md:text-5xl md:text-6xl">La carta del día</h2>
         </div>
 
-        <div className="flex flex-wrap gap-2 justify-center mb-12">
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setActive(c)}
-              className={`px-4 py-2 text-xs uppercase tracking-widest rounded-full border transition cursor-pointer ${
-                active === c
-                  ? "bg-foreground text-background border-foreground font-medium"
-                  : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
+        <div className="relative max-w-xl mx-auto mb-10">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Buscar un pan, sabor o categoría..."
+              className="w-full pl-11 pr-10 py-3 bg-card border border-border rounded-full text-sm focus:outline-none focus:border-foreground transition"
+            />
+            {query && (
+              <button
+                onClick={() => setQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground cursor-pointer"
+                aria-label="Limpiar búsqueda"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+          {isSearching && suggestions.length > 0 && (
+            <div className="absolute z-10 left-0 right-0 mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden">
+              {suggestions.map((p) => (
+                <button
+                  key={p.id}
+                  onClick={() => selectSuggestion(p)}
+                  className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-secondary transition cursor-pointer border-b border-border/40 last:border-0"
+                >
+                  {p.image && (
+                    <img src={p.image} alt={p.name} className="w-10 h-10 object-cover rounded-sm" />
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium truncate">{p.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{p.category}</p>
+                  </div>
+                  <span className="text-xs font-serif">{formatMXN(p.price)}</span>
+                </button>
+              ))}
+            </div>
+          )}
+          {isSearching && suggestions.length === 0 && (
+            <div className="absolute z-10 left-0 right-0 mt-2 bg-card border border-border rounded-lg shadow-lg px-4 py-3 text-sm text-muted-foreground text-center">
+              Sin resultados para "{query}"
+            </div>
+          )}
         </div>
 
+        {!isSearching && (
+          <div className="flex flex-wrap gap-2 justify-center mb-12">
+            {categories.map((c) => (
+              <button
+                key={c}
+                onClick={() => {
+                  setActive(c);
+                  setShowAll(false);
+                }}
+                className={`px-4 py-2 text-xs uppercase tracking-widest rounded-full border transition cursor-pointer ${
+                  active === c
+                    ? "bg-foreground text-background border-foreground font-medium"
+                    : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto justify-center">
-          {filtered.map((p, index) => (
+          {visible.map((p, index) => (
             <ProductCard key={`${active}-${p.id}`} product={p} index={index} />
           ))}
         </div>
+
+        {hasMore && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="px-8 py-3 text-xs uppercase tracking-widest border border-foreground rounded-full hover:bg-foreground hover:text-background transition cursor-pointer"
+            >
+              Ver más ({categoryProducts.length - INITIAL_VISIBLE})
+            </button>
+          </div>
+        )}
+
+        {!isSearching && showAll && categoryProducts.length > INITIAL_VISIBLE && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(false)}
+              className="px-8 py-3 text-xs uppercase tracking-widest border border-border text-muted-foreground rounded-full hover:border-foreground hover:text-foreground transition cursor-pointer"
+            >
+              Ver menos
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -57,6 +173,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
   return (
     <article
+      id={`product-${product.id}`}
       className="bg-card border border-border p-5 flex flex-col sm:flex-row gap-5 group hover:border-foreground/45 transition-all duration-300 hover:shadow-md md:p-6 rounded-sm animate-card-in opacity-0"
       style={{ animationDelay: `${index * 50}ms` }}
     >
