@@ -43,7 +43,7 @@ export function AnnouncementBanner() {
       {/* Sparkle decorative icon left */}
       <div className="hidden md:flex items-center gap-1.5 opacity-90">
         <Sparkles className="w-3.5 h-3.5 text-accent-foreground animate-pulse" />
-        <span>Boutique</span>
+        <span>Artesanal</span>
       </div>
 
       <div className="flex items-center justify-center flex-1 max-w-3xl mx-auto">
