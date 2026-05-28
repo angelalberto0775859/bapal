@@ -34,17 +34,6 @@ export function Footer() {
         <div className="text-sm text-muted-foreground space-y-2">
           <p className="uppercase text-xs tracking-widest text-foreground mb-3">Contacto</p>
           <p>
-            WhatsApp:{" "}
-            <a
-              href="https://wa.me/525560660606"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition"
-            >
-              +52 55 6066 0606
-            </a>
-          </p>
-          <p>
             <a href="mailto:panetteriabapal@gmail.com" className="hover:text-foreground transition">
               panetteriabapal@gmail.com
             </a>
