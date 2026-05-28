@@ -10,24 +10,34 @@ const INITIAL_VISIBLE = 4;
 export function Catalog() {
   const [active, setActive] = useState<string>(categories[0]);
   const [query, setQuery] = useState("");
+  const [submitted, setSubmitted] = useState("");
   const [showAll, setShowAll] = useState(false);
   const [highlighted, setHighlighted] = useState(0);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const normalizedQuery = query.trim().toLowerCase();
-  const isSearching = normalizedQuery.length > 0;
+  const normalizedSubmitted = submitted.trim().toLowerCase();
+  const isTyping = normalizedQuery.length > 0;
+  const isSearching = normalizedSubmitted.length > 0;
+
+  function matches(p: Product, q: string) {
+    return (
+      p.name.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      !!p.variants?.some((v) => v.name.toLowerCase().includes(q))
+    );
+  }
 
   const suggestions = useMemo(() => {
+    if (!isTyping) return [];
+    return products.filter((p) => matches(p, normalizedQuery)).slice(0, 6);
+  }, [normalizedQuery, isTyping]);
+
+  const searchResults = useMemo(() => {
     if (!isSearching) return [];
-    return products
-      .filter(
-        (p) =>
-          p.name.toLowerCase().includes(normalizedQuery) ||
-          p.description.toLowerCase().includes(normalizedQuery) ||
-          p.category.toLowerCase().includes(normalizedQuery) ||
-          p.variants?.some((v) => v.name.toLowerCase().includes(normalizedQuery)),
-      )
-      .slice(0, 6);
-  }, [normalizedQuery, isSearching]);
+    return products.filter((p) => matches(p, normalizedSubmitted));
+  }, [normalizedSubmitted, isSearching]);
 
   const categoryProducts = useMemo(
     () => products.filter((p) => p.category === active),
@@ -35,7 +45,7 @@ export function Catalog() {
   );
 
   const visible = isSearching
-    ? suggestions
+    ? searchResults
     : showAll
       ? categoryProducts
       : categoryProducts.slice(0, INITIAL_VISIBLE);
@@ -43,31 +53,43 @@ export function Catalog() {
   const hasMore = !isSearching && !showAll && categoryProducts.length > INITIAL_VISIBLE;
 
   function selectSuggestion(p: Product) {
-    setActive(p.category);
-    setQuery("");
-    setShowAll(true);
+    setSubmitted(p.name);
+    setQuery(p.name);
+    setShowSuggestions(false);
     setHighlighted(0);
-    setTimeout(() => {
-      document.getElementById(`product-${p.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 50);
+  }
+
+  function submitSearch() {
+    setSubmitted(query);
+    setShowSuggestions(false);
+  }
+
+  function clearSearch() {
+    setQuery("");
+    setSubmitted("");
+    setShowSuggestions(false);
+    setHighlighted(0);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (!isSearching || suggestions.length === 0) return;
-    if (e.key === "ArrowDown") {
+    if (e.key === "ArrowDown" && suggestions.length > 0) {
       e.preventDefault();
       setHighlighted((i) => (i + 1) % suggestions.length);
-    } else if (e.key === "ArrowUp") {
+    } else if (e.key === "ArrowUp" && suggestions.length > 0) {
       e.preventDefault();
       setHighlighted((i) => (i - 1 + suggestions.length) % suggestions.length);
     } else if (e.key === "Enter") {
       e.preventDefault();
-      selectSuggestion(suggestions[highlighted]);
+      if (suggestions.length > 0 && showSuggestions) {
+        selectSuggestion(suggestions[highlighted]);
+      } else {
+        submitSearch();
+      }
     } else if (e.key === "Escape") {
-      setQuery("");
-      setHighlighted(0);
+      clearSearch();
     }
   }
+
 
   return (
     <section id="catalogo" className="py-32 bg-secondary/40">
