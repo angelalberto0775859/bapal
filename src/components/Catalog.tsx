@@ -97,6 +97,9 @@ export function Catalog() {
         <div className="reveal mb-12 text-center">
           <p className="text-xs tracking-[0.3em] text-accent uppercase mb-4">Catálogo</p>
           <h2 className="font-serif text-4xl md:text-5xl md:text-6xl">La carta del día</h2>
+          <p className="text-xs text-muted-foreground mt-4 max-w-md mx-auto leading-relaxed">
+            Las piezas están sujetas a disponibilidad y al horario de horneado.
+          </p>
         </div>
 
         <div className="relative max-w-xl mx-auto mb-10">
