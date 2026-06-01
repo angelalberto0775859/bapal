@@ -76,10 +76,10 @@ export function PromoPopup() {
         <div className="text-center">
           <div className="inline-flex items-center gap-1 bg-accent/10 text-accent text-[9px] tracking-widest uppercase px-2.5 py-0.5 rounded-full font-medium mb-1.5">
             <Sparkles className="w-3 h-3 text-accent animate-pulse" />
-            <span>Nuevos Usuarios</span>
+            <span>Reseña en Google</span>
           </div>
           <h3 className="font-serif text-base text-muted-foreground uppercase tracking-widest leading-none mt-0.5">
-            Primer Compra
+            5% en tu cuenta
           </h3>
         </div>
 
@@ -97,12 +97,12 @@ export function PromoPopup() {
         {/* Footer Text */}
         <div className="text-center">
           <p className="text-[11px] text-muted-foreground leading-relaxed max-w-[240px] mx-auto mb-2">
-            Aplica en tu primera compra celebrando nuestra nueva web.
+            Obtén 5% de descuento en tu cuenta al dejarnos una reseña en Google.
           </p>
 
           {/* Action Voucher Card */}
           <div className="bg-accent/5 border border-accent/10 py-1.5 px-3 rounded-sm text-[10px] text-foreground font-medium leading-snug max-w-[260px] mx-auto mb-3">
-            📸 Toma captura de pantalla y enséñala en mostrador
+            📸 Deja tu reseña en Google y muestra la confirmación en mostrador
             <span className="text-muted-foreground text-[9px] block mt-0.5 font-normal">
               Válido: 01 de Junio al 01 de Julio, 2026
             </span>
