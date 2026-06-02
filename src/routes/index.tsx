@@ -12,6 +12,7 @@ import { FloatingContact } from "@/components/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/useReveal";
 import { PromoPopup } from "@/components/PromoPopup";
+import { FreshGallery } from "@/components/FreshGallery";
 
 export const Route = createFileRoute("/")({
   component: Index,
