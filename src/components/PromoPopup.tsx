@@ -6,6 +6,9 @@ export function PromoPopup() {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
+    const promoSeen = localStorage.getItem("bapal_promo_seen") === "true";
+    if (promoSeen) return; // Solo una vez por cliente
+
     const cookiesAccepted = localStorage.getItem("bapal_cookies_accepted") === "true";
 
     let startTimeout: ReturnType<typeof setTimeout>;
