@@ -6,6 +6,7 @@ import imgBroca from "@/assets/Panes/products/Broca.png";
 import imgChoux from "@/assets/Panes/products/Chux.png";
 import imgCocol from "@/assets/Panes/products/Cocol.png";
 import imgConchaChocolate from "@/assets/Panes/products/Concha de chocolate.png";
+import imgConchaVainilla from "@/assets/Panes/products/Concha Vainilla.png";
 import imgCuernoHigo from "@/assets/Panes/products/Cuerno Higo.png";
 import imgCuernoCajeta from "@/assets/Panes/products/Cuerno Nuez y Cajeta.png";
 import imgCuernoZarzamora from "@/assets/Panes/products/Cuerno Queso_zarsamora.png";
@@ -125,11 +126,12 @@ export const products: Product[] = [
   {
     id: "dul-concha",
     name: "Concha",
-    description: "Concha de masa esponjosa con cobertura artesanal.",
+    description: "Concha de masa esponjosa con cobertura artesanal de vainilla o chocolate.",
     price: 13,
     category: "Pan Dulce Tradicional",
-    image: imgConchaChocolate,
+    image: imgConchaVainilla,
     variants: [
+      { name: "Vainilla", image: imgConchaVainilla },
       { name: "Chocolate", image: imgConchaChocolate },
     ],
   },
@@ -294,9 +296,9 @@ export const products: Product[] = [
     image: imgChoux,
   },
   {
-    id: "rep-pan-muerto",
-    name: "Pan de Muerto",
-    description: "Pan de muerto tradicional con azúcar.",
+    id: "rep-chamaco",
+    name: "Chamaco",
+    description: "Pan dulce tradicional tipo chamaco, suave, esponjoso y espolvoreado con azúcar.",
     price: 40,
     category: "Panqués & Repostería",
     image: imgPan,
@@ -311,8 +313,8 @@ export const products: Product[] = [
   },
   {
     id: "rep-reja",
-    name: "Reja de Crema",
-    description: "Hojaldre trenzado relleno de crema pastelera.",
+    name: "Reja",
+    description: "Hojaldre crujiente y trenzado con un acabado tradicional de azúcar.",
     price: 20,
     category: "Panqués & Repostería",
     image: imgReja,
