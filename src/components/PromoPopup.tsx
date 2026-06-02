@@ -108,7 +108,7 @@ export function PromoPopup() {
           <div className="bg-accent/5 border border-accent/10 py-1.5 px-3 rounded-sm text-[10px] text-foreground font-medium leading-snug max-w-[260px] mx-auto mb-3">
             📸 Deja tu reseña en Google y muestra la confirmación en mostrador
             <span className="text-muted-foreground text-[9px] block mt-0.5 font-normal">
-              Válido: 01 de Junio al 01 de Julio, 2026
+              Válido: 01 de Junio al 01 de Julio, 2026. Uno por cliente.
             </span>
           </div>
 
