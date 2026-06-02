@@ -12,6 +12,7 @@ import { FloatingContact } from "@/components/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/useReveal";
 import { PromoPopup } from "@/components/PromoPopup";
+import mundialBg from "@/assets/mundial-bg.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -89,6 +90,12 @@ function Index() {
         <Catalog />
       </main>
       <Footer />
+      <div
+        aria-hidden="true"
+        className="w-full h-32 md:h-44 bg-center bg-cover bg-no-repeat opacity-90"
+        style={{ backgroundImage: `url(${mundialBg})` }}
+        role="presentation"
+      />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <Toaster position="bottom-right" />
       <FloatingContact />
