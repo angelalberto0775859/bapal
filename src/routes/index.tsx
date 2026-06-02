@@ -12,7 +12,6 @@ import { FloatingContact } from "@/components/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/useReveal";
 import { PromoPopup } from "@/components/PromoPopup";
-import mundialBg from "@/assets/mundial-bg.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -91,11 +90,18 @@ function Index() {
       </main>
       <Footer />
       <div
-        aria-hidden="true"
-        className="w-full h-32 md:h-44 bg-center bg-cover bg-no-repeat opacity-90"
-        style={{ backgroundImage: `url(${mundialBg})` }}
         role="presentation"
-      />
+        aria-hidden="true"
+        className="w-full grid grid-cols-3 h-14 md:h-16 border-t border-border/60"
+      >
+        <div className="bg-[#006847]" />
+        <div className="bg-white flex items-center justify-center">
+          <span className="font-serif text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#1a1a1a]">
+            Mundial <span className="text-[#006847]">·</span> 2026 <span className="text-[#ce1126]">·</span> México
+          </span>
+        </div>
+        <div className="bg-[#ce1126]" />
+      </div>
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <Toaster position="bottom-right" />
       <FloatingContact />
