@@ -29,7 +29,7 @@ import imgOreja from "@/assets/Panes/products/Oreja.png";
 import imgPaloNuez from "@/assets/Panes/products/Palo de Nuez.png";
 import imgPan from "@/assets/Panes/products/Pan .png";
 import imgPanConQueso from "@/assets/Panes/products/Pan con queso.png";
-import imgPanPina from "@/assets/Panes/products/Pan de piña.png";
+import imgPanPina from "@/assets/Panes/products/Pan de piña.png";
 import imgPolvoronCanela from "@/assets/Panes/products/Polvoron canela.png";
 import imgPolvoronChocolate from "@/assets/Panes/products/Polvoron de Chocolate.png";
 import imgPolvoronNuez from "@/assets/Panes/products/Polvoron de nuez.png";
