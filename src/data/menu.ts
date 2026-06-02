@@ -321,7 +321,7 @@ export const products: Product[] = [
   },
   {
     id: "rep-pan-001",
-    name: "Pan 001",
+    name: "Deliciosa pieza de pan",
     description: "Pieza de panadería fina con masa madre, corteza dorada y miga alveolada ideal para acompañar tus comidas.",
     price: 18,
     category: "Panqués & Repostería",
@@ -329,7 +329,7 @@ export const products: Product[] = [
   },
   {
     id: "rep-pan-002",
-    name: "Pan 002",
+    name: "Deliciosa pieza de pan",
     description: "Exquisito pan de repostería hojaldrado con un toque de azúcar y mantequilla, perfecto para el café.",
     price: 22,
     category: "Panqués & Repostería",
@@ -337,7 +337,7 @@ export const products: Product[] = [
   },
   {
     id: "rep-pan-003",
-    name: "Pan 003",
+    name: "Deliciosa pieza de pan",
     description: "Tarta salada o quiché artesanal con costra crujiente de mantequilla y un relleno selecto del día.",
     price: 24,
     category: "Panqués & Repostería",
