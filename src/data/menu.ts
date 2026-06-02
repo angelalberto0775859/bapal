@@ -1,48 +1,59 @@
-import imgPolvoron from "@/assets/Panes/edited/pan-110846-am.jpg";
-import imgGalletaChispas from "@/assets/Panes/edited/pan-110846-am-3.jpg";
-import imgGalletaDeliciosa from "@/assets/Panes/edited/pan-110846-am-2.jpg";
-import imgPalitoNuez from "@/assets/Panes/edited/pan-110846-am-5.jpg";
-import imgRebanadaMantequilla from "@/assets/Panes/edited/pan-110847-am.jpg";
-import imgBrocaHojaldrada from "@/assets/Panes/edited/pan-110847-am-2.jpg";
-import imgGalletaMordida from "@/assets/Panes/edited/pan-110846-am-7.jpg";
-import imgGalletaMulti from "@/assets/Panes/edited/pan-110846-am-6.jpg";
-import imgGalletaCazuela from "@/assets/Panes/edited/pan-110846-am-4.jpg";
+import imgBerlinesa from "@/assets/Panes/products/Berlinesa.png";
+import imgBeso from "@/assets/Panes/products/Beso.png";
+import imgBisquet from "@/assets/Panes/products/Bisquet.png";
+import imgBolillo from "@/assets/Panes/products/Bolillo.png";
+import imgBroca from "@/assets/Panes/products/Broca.png";
+import imgChoux from "@/assets/Panes/products/Chux.png";
+import imgCocol from "@/assets/Panes/products/Cocol.png";
+import imgConchaChocolate from "@/assets/Panes/products/Concha de chocolate.png";
+import imgCuernoHigo from "@/assets/Panes/products/Cuerno Higo.png";
+import imgCuernoCajeta from "@/assets/Panes/products/Cuerno Nuez y Cajeta.png";
+import imgCuernoZarzamora from "@/assets/Panes/products/Cuerno Queso_zarsamora.png";
+import imgCuernoSencillo from "@/assets/Panes/products/Cuerno Sencillo.png";
+import imgCuernoChocolate from "@/assets/Panes/products/Cuerno de chocolate.png";
+import imgCuerno from "@/assets/Panes/products/Cuerno.png";
+import imgDeliciosaB from "@/assets/Panes/products/Deliciosa B.png";
+import imgDeliciosa from "@/assets/Panes/products/Deliciosa.png";
+import imgDonaChocolate from "@/assets/Panes/products/Dona Chocolate.png";
+import imgDonaDobleChocolate from "@/assets/Panes/products/Dona Doble chocolate.png";
+import imgDonaNuez from "@/assets/Panes/products/Dona con nuez de chocolate.png";
+import imgDona from "@/assets/Panes/products/Dona.png";
+import imgGalletaChispas from "@/assets/Panes/products/Galleta con chispas.png";
+import imgGendarme from "@/assets/Panes/products/Gendarme.png";
+import imgLentes from "@/assets/Panes/products/Lentes.png";
+import imgManteca from "@/assets/Panes/products/Manteca .png";
+import imgMuffin from "@/assets/Panes/products/Muffin arandanos.png";
+import imgOreja from "@/assets/Panes/products/Oreja.png";
+import imgPaloNuez from "@/assets/Panes/products/Palo de Nuez.png";
+import imgPan from "@/assets/Panes/products/Pan .png";
+import imgPanConQueso from "@/assets/Panes/products/Pan con queso.png";
+import imgPanPina from "@/assets/Panes/products/Pan de piña.png";
+import imgPolvoronCanela from "@/assets/Panes/products/Polvoron canela.png";
+import imgPolvoronChocolate from "@/assets/Panes/products/Polvoron de Chocolate.png";
+import imgPolvoronNuez from "@/assets/Panes/products/Polvoron de nuez.png";
+import imgRebanada from "@/assets/Panes/products/Rebanada.png";
+import imgReja from "@/assets/Panes/products/Reja.png";
+import imgChapata from "@/assets/Panes/products/chapata.png";
 
-import imgConchaVainilla from "@/assets/Panes/edited/pan-110849-am-7.jpg";
-import imgConchaChocolate from "@/assets/Panes/edited/pan-110849-am-6.jpg";
-import imgDonaGranillo from "@/assets/Panes/edited/pan-110849-am-3.jpg";
-import imgDonaNuez from "@/assets/Panes/edited/pan-110849-am-4.jpg";
-import imgDonaChips from "@/assets/Panes/edited/pan-110849-am-5.jpg";
+// Gemini images
+import imgGemini6appbu from "@/assets/Panes/products/Gemini_Generated_Image_6appbu6appbu6app.png";
+import imgPanque from "@/assets/Panes/products/Gemini_Generated_Image_88ty8688ty8688ty.png";
+import imgGeminiT2cfa7 from "@/assets/Panes/products/Gemini_Generated_Image_t2cfa7t2cfa7t2cf.png";
+import imgQuiche from "@/assets/Panes/products/Gemini_Generated_Image_un6z4oun6z4oun6z.png";
 
-import imgBerlinesa from "@/assets/Panes/edited/pan-110847-am-6.jpg";
-import imgGendarme from "@/assets/Panes/edited/pan-110848-am-5.jpg";
-import imgPanElote from "@/assets/Panes/edited/pan-110848-am.jpg";
-import imgMantecadaSencilla from "@/assets/Panes/edited/pan-110848-am-2.jpg";
-import imgMantecadaChocolate from "@/assets/Panes/edited/pan-110849-am-9.jpg";
-import imgBeso from "@/assets/Panes/edited/pan-110848-am-4.jpg";
-import imgOjoBuey from "@/assets/Panes/edited/pan-110849-am.jpg";
-import imgChinoNuez from "@/assets/Panes/edited/pan-110849-am-8.jpg";
-
-import imgCuernoSencillo from "@/assets/Panes/edited/pan-110850-am-2.jpg";
-import imgCuernoZarzamora from "@/assets/Panes/edited/pan-110849-am-11.jpg";
-import imgCuernoHigo from "@/assets/Panes/edited/pan-110850-am-7.jpg";
-import imgCuernoChocolate from "@/assets/Panes/edited/pan-110850-am-5.jpg";
-import imgCuernoCajeta from "@/assets/Panes/edited/pan-110848-am-3.jpg";
-
-import imgBarquillo from "@/assets/Panes/edited/pan-110850-am.jpg";
-import imgRol from "@/assets/Panes/edited/pan-110850-am-3.jpg";
-import imgOreja from "@/assets/Panes/edited/pan-110850-am-4.jpg";
-import imgTrebol from "@/assets/Panes/edited/pan-110848-am-8.jpg";
-
-import imgBisquet from "@/assets/Panes/edited/pan-110847-am-5.jpg";
-import imgBisquetIntegral from "@/assets/Panes/edited/pan-110848-am-6.jpg";
-import imgCocol from "@/assets/Panes/edited/pan-110848-am-7.jpg";
-
-import imgChapata from "@/assets/Panes/edited/chapata-real.jpg";
-import imgBolillo from "@/assets/Panes/edited/pan-110850-am-9.jpg";
-import imgChapataSemillas from "@/assets/Panes/edited/pan-110848-am-9.jpg";
-
-import imgPanque from "@/assets/Panes/edited/pan-110850-am-8.jpg";
+// Past images from edited folder
+import imgPolvoronCacahuateOld from "@/assets/Panes/edited/pan-110846-am-2.jpg";
+import imgGalletaMordidaOld from "@/assets/Panes/edited/pan-110846-am-7.jpg";
+import imgPanEloteOld from "@/assets/Panes/edited/pan-110848-am.jpg";
+import imgLaurelOld from "@/assets/Panes/edited/pan-110848-am-8.jpg";
+import imgMantecadaSencillaOld from "@/assets/Panes/edited/pan-110848-am-2.jpg";
+import imgChinoNuezOld from "@/assets/Panes/edited/pan-110849-am-8.jpg";
+import imgMantecadaChocolateOld from "@/assets/Panes/edited/pan-110849-am-9.jpg";
+import imgOjoBueyOld from "@/assets/Panes/edited/pan-110849-am.jpg";
+import imgPalitoNuezOld from "@/assets/Panes/edited/pan-110846-am-5.jpg";
+import imgBarquilloOld from "@/assets/Panes/edited/pan-110850-am.jpg";
+import imgRolOld from "@/assets/Panes/edited/pan-110850-am-3.jpg";
+import imgBisquetIntegralOld from "@/assets/Panes/edited/pan-110848-am-6.jpg";
 
 export type Variant = { name: string; priceDelta?: number; brand?: string; image?: string };
 export type Product = {
@@ -72,7 +83,7 @@ export const products: Product[] = [
     description: "Polvorón tradicional de textura arenosa y sabor casero.",
     price: 13,
     category: "Galletería & Polvorones",
-    image: imgPolvoron,
+    image: imgPolvoronCanela,
   },
   {
     id: "gal-polvoron-cacahuate",
@@ -80,7 +91,7 @@ export const products: Product[] = [
     description: "Polvorón de textura suave con cacahuate tostado.",
     price: 18,
     category: "Galletería & Polvorones",
-    image: imgGalletaDeliciosa,
+    image: imgPolvoronCacahuateOld,
   },
   {
     id: "gal-deliciosa",
@@ -88,7 +99,7 @@ export const products: Product[] = [
     description: "Galleta tradicional rellena de jalea.",
     price: 18,
     category: "Galletería & Polvorones",
-    image: imgGalletaCazuela,
+    image: imgDeliciosa,
   },
   {
     id: "gal-miel-arandano",
@@ -104,7 +115,7 @@ export const products: Product[] = [
     description: "Pan dulce crujiente con nuez.",
     price: 16,
     category: "Galletería & Polvorones",
-    image: imgPalitoNuez,
+    image: imgPaloNuez,
   },
   {
     id: "gal-paloma",
@@ -112,7 +123,7 @@ export const products: Product[] = [
     description: "Pieza tradicional de pan dulce.",
     price: 13,
     category: "Galletería & Polvorones",
-    image: imgPolvoron,
+    image: imgPolvoronCanela,
   },
   {
     id: "gal-piedra",
@@ -120,7 +131,7 @@ export const products: Product[] = [
     description: "Pan dulce tradicional de textura firme.",
     price: 13,
     category: "Galletería & Polvorones",
-    image: imgGalletaMordida,
+    image: imgPolvoronChocolate,
   },
   {
     id: "gal-rebanada-mantequilla",
@@ -128,7 +139,7 @@ export const products: Product[] = [
     description: "Rebanada dulce con mantequilla y azúcar.",
     price: 13,
     category: "Galletería & Polvorones",
-    image: imgRebanadaMantequilla,
+    image: imgRebanada,
   },
   {
     id: "gal-mordida",
@@ -136,7 +147,7 @@ export const products: Product[] = [
     description: "Galleta tradicional de panadería.",
     price: 13,
     category: "Galletería & Polvorones",
-    image: imgGalletaMordida,
+    image: imgGalletaMordidaOld,
   },
   {
     id: "gal-multi",
@@ -144,7 +155,7 @@ export const products: Product[] = [
     description: "Galleta surtida de la casa.",
     price: 22,
     category: "Galletería & Polvorones",
-    image: imgGalletaMulti,
+    image: imgDeliciosaB,
   },
 
   // Pan Dulce Tradicional
@@ -162,9 +173,9 @@ export const products: Product[] = [
     description: "Concha de masa esponjosa con cobertura artesanal.",
     price: 13,
     category: "Pan Dulce Tradicional",
-    image: imgConchaVainilla,
+    image: imgConchaChocolate,
     variants: [
-      { name: "Vainilla", image: imgConchaVainilla },
+      { name: "Vainilla", image: imgConchaChocolate },
       { name: "Chocolate", image: imgConchaChocolate },
     ],
   },
@@ -182,7 +193,7 @@ export const products: Product[] = [
     description: "Pan dulce tipo elote, suave y aromático.",
     price: 13,
     category: "Pan Dulce Tradicional",
-    image: imgPanElote,
+    image: imgPanEloteOld,
   },
   {
     id: "dul-gendarme",
@@ -198,7 +209,7 @@ export const products: Product[] = [
     description: "Pan dulce con canela.",
     price: 13,
     category: "Pan Dulce Tradicional",
-    image: imgRol,
+    image: imgManteca,
   },
   {
     id: "dul-laurel",
@@ -206,7 +217,7 @@ export const products: Product[] = [
     description: "Pieza tradicional de pan dulce.",
     price: 13,
     category: "Pan Dulce Tradicional",
-    image: imgTrebol,
+    image: imgLaurelOld,
   },
   {
     id: "dul-cazuela",
@@ -222,7 +233,7 @@ export const products: Product[] = [
     description: "Pan tradicional elaborado con manteca.",
     price: 14,
     category: "Pan Dulce Tradicional",
-    image: imgGalletaMordida,
+    image: imgManteca,
   },
   {
     id: "dul-mantecada",
@@ -230,7 +241,7 @@ export const products: Product[] = [
     description: "Mantecada clásica, esponjosa y aromática.",
     price: 14,
     category: "Pan Dulce Tradicional",
-    image: imgMantecadaSencilla,
+    image: imgMantecadaSencillaOld,
   },
   {
     id: "dul-beso",
@@ -246,7 +257,7 @@ export const products: Product[] = [
     description: "Pan dulce tradicional de la casa.",
     price: 15,
     category: "Pan Dulce Tradicional",
-    image: imgBrocaHojaldrada,
+    image: imgBroca,
   },
   {
     id: "dul-berlinesa",
@@ -270,7 +281,7 @@ export const products: Product[] = [
     description: "Pan enrollado con canela y nuez.",
     price: 20,
     category: "Pan Dulce Tradicional",
-    image: imgChinoNuez,
+    image: imgChinoNuezOld,
   },
   {
     id: "dul-danes",
@@ -286,7 +297,7 @@ export const products: Product[] = [
     description: "Dona suave con cobertura de chocolate.",
     price: 20,
     category: "Pan Dulce Tradicional",
-    image: imgDonaChips,
+    image: imgDonaChocolate,
   },
   {
     id: "dul-dona-granillo",
@@ -294,7 +305,7 @@ export const products: Product[] = [
     description: "Dona suave con granillo.",
     price: 21,
     category: "Pan Dulce Tradicional",
-    image: imgDonaGranillo,
+    image: imgDona,
   },
   {
     id: "dul-dona-nuez",
@@ -310,7 +321,7 @@ export const products: Product[] = [
     description: "Empanada dulce rellena de crema.",
     price: 20,
     category: "Pan Dulce Tradicional",
-    image: imgBeso,
+    image: imgReja,
   },
   {
     id: "dul-empanada-pina",
@@ -318,7 +329,7 @@ export const products: Product[] = [
     description: "Empanada dulce rellena de piña.",
     price: 20,
     category: "Pan Dulce Tradicional",
-    image: imgBeso,
+    image: imgPanPina,
   },
   {
     id: "dul-garibaldi",
@@ -326,7 +337,7 @@ export const products: Product[] = [
     description: "Pan dulce tradicional con acabado de gragea.",
     price: 20,
     category: "Pan Dulce Tradicional",
-    image: imgMantecadaChocolate,
+    image: imgMantecadaChocolateOld,
   },
   {
     id: "dul-garibaldi-especial",
@@ -334,7 +345,7 @@ export const products: Product[] = [
     description: "Garibaldi de presentación especial.",
     price: 21,
     category: "Pan Dulce Tradicional",
-    image: imgMantecadaChocolate,
+    image: imgMantecadaChocolateOld,
   },
   {
     id: "dul-muela",
@@ -342,7 +353,7 @@ export const products: Product[] = [
     description: "Pieza tradicional de pan dulce.",
     price: 20,
     category: "Pan Dulce Tradicional",
-    image: imgOjoBuey,
+    image: imgOjoBueyOld,
   },
   {
     id: "dul-muffin",
@@ -350,7 +361,7 @@ export const products: Product[] = [
     description: "Muffin suave horneado del día.",
     price: 20,
     category: "Pan Dulce Tradicional",
-    image: imgMantecadaSencilla,
+    image: imgMuffin,
   },
   {
     id: "dul-ojo",
@@ -358,7 +369,7 @@ export const products: Product[] = [
     description: "Pan tradicional con centro suave.",
     price: 20,
     category: "Pan Dulce Tradicional",
-    image: imgOjoBuey,
+    image: imgLentes,
   },
   {
     id: "dul-ombligonas",
@@ -398,7 +409,7 @@ export const products: Product[] = [
     description: "Budín de pan horneado de la casa.",
     price: 22,
     category: "Pan Dulce Tradicional",
-    image: imgMantecadaChocolate,
+    image: imgMantecadaChocolateOld,
   },
   {
     id: "dul-domino",
@@ -406,7 +417,7 @@ export const products: Product[] = [
     description: "Pan dulce de chocolate y vainilla.",
     price: 24,
     category: "Pan Dulce Tradicional",
-    image: imgConchaChocolate,
+    image: imgDonaDobleChocolate,
   },
   {
     id: "dul-dedos-novia",
@@ -414,7 +425,7 @@ export const products: Product[] = [
     description: "Pieza dulce fina de panadería.",
     price: 21,
     category: "Pan Dulce Tradicional",
-    image: imgPalitoNuez,
+    image: imgPalitoNuezOld,
   },
 
   // Cuernos & Hojaldres
@@ -448,7 +459,7 @@ export const products: Product[] = [
     description: "Crujientes capas de hojaldre trenzado.",
     price: 15,
     category: "Cuernos & Hojaldres",
-    image: imgBrocaHojaldrada,
+    image: imgBroca,
   },
   {
     id: "hoj-barquillo",
@@ -456,7 +467,7 @@ export const products: Product[] = [
     description: "Cono de hojaldre crujiente.",
     price: 21,
     category: "Cuernos & Hojaldres",
-    image: imgBarquillo,
+    image: imgBarquilloOld,
   },
   {
     id: "hoj-cuerno-relleno",
@@ -478,7 +489,7 @@ export const products: Product[] = [
     description: "Rol dulce con acabado de tres leches.",
     price: 25,
     category: "Cuernos & Hojaldres",
-    image: imgRol,
+    image: imgRolOld,
   },
 
   // Cazuelas & Cocoles
@@ -504,7 +515,7 @@ export const products: Product[] = [
     description: "Pieza tradicional de pan dulce.",
     price: 16,
     category: "Cazuelas & Cocoles",
-    image: imgBisquetIntegral,
+    image: imgBisquetIntegralOld,
   },
 
   // Salados & Chapatas
@@ -554,7 +565,7 @@ export const products: Product[] = [
     description: "Bollo salado con queso.",
     price: 16,
     category: "Salados & Chapatas",
-    image: imgChapataSemillas,
+    image: imgPanConQueso,
   },
   {
     id: "sal-chapata",
@@ -612,7 +623,7 @@ export const products: Product[] = [
     description: "Choux dulce con acabado de chocolate o glass.",
     price: 24,
     category: "Panqués & Repostería",
-    image: imgBeso,
+    image: imgChoux,
   },
   {
     id: "rep-pan-muerto-sencillo",
@@ -620,7 +631,7 @@ export const products: Product[] = [
     description: "Pan de muerto tradicional sencillo.",
     price: 40,
     category: "Panqués & Repostería",
-    image: imgConchaVainilla,
+    image: imgPan,
   },
   {
     id: "rep-pan-muerto-relleno",
@@ -636,7 +647,7 @@ export const products: Product[] = [
     description: "Pastel por kilogramo bajo pedido.",
     price: 200,
     category: "Panqués & Repostería",
-    image: imgMantecadaChocolate,
+    image: imgMantecadaChocolateOld,
   },
   {
     id: "rep-chocoflan",
@@ -644,7 +655,7 @@ export const products: Product[] = [
     description: "Chocoflan de la casa.",
     price: 38,
     category: "Panqués & Repostería",
-    image: imgMantecadaChocolate,
+    image: imgMantecadaChocolateOld,
   },
   {
     id: "rep-picon",

@@ -7,7 +7,7 @@ import { toast } from "sonner";
 export function Recommendations() {
   // Find the exact products in our database
   const bestSellers = useMemo(() => {
-    const ids = ["hoj-1", "dul-1", "bis-1"];
+    const ids = ["hoj-cuerno-relleno", "dul-concha", "dul-cazuela"];
     return ids.map((id) => products.find((p) => p.id === id)).filter(Boolean) as typeof products;
   }, []);
 
