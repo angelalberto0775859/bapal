@@ -69,13 +69,13 @@ export const products: Product[] = [
     id: "gal-polvoron",
     name: "Polvorón",
     description: "Polvorón tradicional de textura arenosa y sabor casero, disponible en varios sabores.",
-    price: 13,
+    price: 18,
     category: "Galletería & Polvorones",
     image: imgPolvoronCanela,
     variants: [
       { name: "Canela", image: imgPolvoronCanela },
       { name: "Chocolate", image: imgPolvoronChocolate },
-      { name: "Nuez", image: imgPolvoronNuez },
+      { name: "Cacahuate", image: imgPolvoronNuez },
     ],
   },
   {
