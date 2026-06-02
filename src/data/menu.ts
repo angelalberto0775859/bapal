@@ -43,6 +43,12 @@ import imgGemini6appbu from "@/assets/Panes/products/Gemini_Generated_Image_6app
 import imgGeminiT2cfa7 from "@/assets/Panes/products/Gemini_Generated_Image_t2cfa7t2cfa7t2cf.webp";
 import imgQuiche from "@/assets/Panes/products/Gemini_Generated_Image_un6z4oun6z4oun6z.webp";
 
+// CDN asset pointers (new rolls)
+import rolCajetaAsset from "@/assets/Panes/products/rol-cajeta-nuez.png.asset.json";
+import rolQuesoAsset from "@/assets/Panes/products/rol-queso-nescafe-nuez.png.asset.json";
+const imgRolCajeta = rolCajetaAsset.url;
+const imgRolQueso = rolQuesoAsset.url;
+
 export type Variant = { name: string; priceDelta?: number; brand?: string; image?: string };
 export type Product = {
   id: string;
@@ -351,6 +357,22 @@ export const products: Product[] = [
     price: 24,
     category: "Panqués & Repostería",
     image: imgQuiche,
+  },
+  {
+    id: "rep-rol-cajeta",
+    name: "Rol de Cajeta con Nuez",
+    description: "Rol hojaldrado de 81 capas bañado en cajeta artesanal y nuez tostada, con miga mantecosa y caramelizada.",
+    price: 40,
+    category: "Panqués & Repostería",
+    image: imgRolCajeta,
+  },
+  {
+    id: "rep-rol-queso-nescafe",
+    name: "Rol de Queso, Nescafé y Nuez",
+    description: "Rol hojaldrado con relleno cremoso de queso, toque intenso de café y nuez, terminado con glaseado fino de vainilla.",
+    price: 40,
+    category: "Panqués & Repostería",
+    image: imgRolQueso,
   },
 ];
 
