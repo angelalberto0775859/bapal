@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, Sparkles, ExternalLink } from "lucide-react";
+import gallo from "@/assets/gallo.png";
 
 export function PromoPopup() {
   const [show, setShow] = useState(false);
@@ -66,6 +67,20 @@ export function PromoPopup() {
         {/* Subtle decorative background pattern */}
         <div className="absolute -right-16 -top-16 w-36 h-36 rounded-full bg-accent/5 pointer-events-none" />
         <div className="absolute -left-16 -bottom-16 w-36 h-36 rounded-full bg-accent/5 pointer-events-none" />
+
+        {/* Gallos decorativos */}
+        <img
+          src={gallo}
+          alt=""
+          aria-hidden="true"
+          className="absolute -left-4 bottom-2 w-16 h-16 opacity-25 pointer-events-none select-none"
+        />
+        <img
+          src={gallo}
+          alt=""
+          aria-hidden="true"
+          className="absolute -right-4 bottom-2 w-16 h-16 opacity-25 pointer-events-none select-none -scale-x-100"
+        />
 
         {/* Close Button */}
         <button
