@@ -12,7 +12,8 @@ export function FloatingContact() {
           open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
-        {/* WhatsApp */}
+        {/* WhatsApp — deshabilitado temporalmente */}
+        {/*
         <a
           href="https://wa.me/525560660606"
           target="_blank"
@@ -27,6 +28,7 @@ export function FloatingContact() {
             <MessageCircle className="w-5 h-5 fill-current" />
           </span>
         </a>
+        */}
 
         {/* Instagram */}
         <a
