@@ -7,7 +7,7 @@ import { toast } from "sonner";
 export function Recommendations() {
   // Find the exact products in our database
   const bestSellers = useMemo(() => {
-    const ids = ["hoj-cuerno-relleno", "dul-concha", "dul-cazuela"];
+    const ids = ["hoj-cuerno-relleno", "dul-concha", "dul-bisquet"];
     return ids.map((id) => products.find((p) => p.id === id)).filter(Boolean) as typeof products;
   }, []);
 
@@ -19,11 +19,11 @@ export function Recommendations() {
       },
       {
         tag: "Favorito",
-        customDesc: "Masa brioche súper esponjosa con costra artesanal y un toque de vainilla de Papantla.",
+        customDesc: "Masa brioche súper esponjosa con costra artesanal y un toque de chocolate.",
       },
       {
         tag: "Recomendación",
-        customDesc: "Cazuela dorada de mantequilla pura, de miga densa y sabor inigualable.",
+        customDesc: "Bisquet clásico dorado y crujiente por fuera, increíblemente suave y aromático por dentro.",
       },
     ];
 
