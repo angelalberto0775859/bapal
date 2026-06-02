@@ -104,9 +104,20 @@ export function PromoPopup() {
             Obtén 5% de descuento en tu cuenta al dejarnos una reseña en Google.
           </p>
 
+          {/* CTA Button */}
+          <a
+            href="https://search.google.com/local/writereview?placeid=ChIJrYlP3Xb-0YURzxb0WbE1E5Q"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1.5 bg-accent text-accent-foreground text-[11px] font-medium tracking-wide uppercase px-4 py-2 rounded-sm hover:bg-accent/90 transition-colors mb-3"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            Dejar reseña en Google
+          </a>
+
           {/* Action Voucher Card */}
           <div className="bg-accent/5 border border-accent/10 py-1.5 px-3 rounded-sm text-[10px] text-foreground font-medium leading-snug max-w-[260px] mx-auto mb-3">
-            📸 Deja tu reseña en Google y muestra la confirmación en mostrador
+            📸 Muestra la confirmación en mostrador
             <span className="text-muted-foreground text-[9px] block mt-0.5 font-normal">
               Válido: 01 de Junio al 01 de Julio, 2026. Uno por cliente.
             </span>
