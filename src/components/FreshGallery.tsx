@@ -7,10 +7,10 @@ import g4 from "@/assets/gallery/gallery-4.jpg.asset.json";
 type Shot = { src: string; title: string; meta: string };
 
 const shots: Shot[] = [
-  { src: g1.url, title: "Roles de Cajeta", meta: "Recién horneados · 06:42 AM" },
-  { src: g2.url, title: "Cajeta artesanal", meta: "Bañado a mano · 07:05 AM" },
-  { src: g3.url, title: "Hojaldre de 81 capas", meta: "Mantequilla pura · 06:58 AM" },
-  { src: g4.url, title: "Glaseado de vainilla", meta: "Finalizado · 07:12 AM" },
+  { src: g1.url, title: "Pan artesanal", meta: "Recién horneados · 06:42 AM" },
+  { src: g2.url, title: "Masa trabajada a mano", meta: "Bañado a mano · 07:05 AM" },
+  { src: g3.url, title: "Recién salido del horno", meta: "Mantequilla pura · 06:58 AM" },
+  { src: g4.url, title: "Tradición en cada pieza", meta: "Finalizado · 07:12 AM" },
 ];
 
 export function FreshGallery() {
