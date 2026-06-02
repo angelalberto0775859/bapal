@@ -6,7 +6,7 @@ export function PromoPopup() {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    const promoSeen = localStorage.getItem("bapal_promo_seen") === "true";
+    const promoSeen = localStorage.getItem("bapal_promo_seen_v2") === "true";
     if (promoSeen) return; // Solo una vez por cliente
 
     const cookiesAccepted = localStorage.getItem("bapal_cookies_accepted") === "true";
@@ -41,7 +41,7 @@ export function PromoPopup() {
 
   const handleClose = () => {
     setShow(false);
-    localStorage.setItem("bapal_promo_seen", "true");
+    localStorage.setItem("bapal_promo_seen_v2", "true");
     // Unmount after animation completes (300ms)
     setTimeout(() => {
       setShouldRender(false);
