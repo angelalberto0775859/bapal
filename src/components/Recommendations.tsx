@@ -9,9 +9,9 @@ export function Recommendations() {
   const bestSellers = useMemo(() => {
     const pools: string[][] = [
       ["hoj-cuerno-relleno", "dul-concha", "dul-cazuela"],
-      ["rep-rol-cajeta", "hoj-cuerno-relleno", "dul-bisquet"],
-      ["rep-rol-queso-nescafe", "dul-concha", "rep-choux"],
-      ["rep-rol-cajeta", "rep-rol-queso-nescafe", "dul-berlinesa"],
+      ["rep-rol", "hoj-cuerno-relleno", "dul-bisquet"],
+      ["rep-rol", "dul-concha", "rep-choux"],
+      ["rep-rol", "dul-berlinesa", "hoj-oreja"],
       ["dul-dona", "hoj-oreja", "rep-chamaco"],
       ["dul-concha", "rep-empanada-pina", "gal-deliciosa"],
     ];
