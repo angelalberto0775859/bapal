@@ -358,6 +358,22 @@ export const products: Product[] = [
     category: "Panqués & Repostería",
     image: imgQuiche,
   },
+  {
+    id: "rep-rol-cajeta",
+    name: "Rol de Cajeta con Nuez",
+    description: "Rol hojaldrado de 81 capas bañado en cajeta artesanal y nuez tostada, con miga mantecosa y caramelizada.",
+    price: 40,
+    category: "Panqués & Repostería",
+    image: imgRolCajeta,
+  },
+  {
+    id: "rep-rol-queso-nescafe",
+    name: "Rol de Queso, Nescafé y Nuez",
+    description: "Rol hojaldrado con relleno cremoso de queso, toque intenso de café y nuez, terminado con glaseado fino de vainilla.",
+    price: 40,
+    category: "Panqués & Repostería",
+    image: imgRolQueso,
+  },
 ];
 
 export const brands = [
