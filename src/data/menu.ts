@@ -37,6 +37,9 @@ import imgChapata from "@/assets/Panes/products/chapata.png";
 
 // Gemini images
 import imgPanque from "@/assets/Panes/products/Gemini_Generated_Image_88ty8688ty8688ty.png";
+import imgGemini6appbu from "@/assets/Panes/products/Gemini_Generated_Image_6appbu6appbu6app.png";
+import imgGeminiT2cfa7 from "@/assets/Panes/products/Gemini_Generated_Image_t2cfa7t2cfa7t2cf.png";
+import imgQuiche from "@/assets/Panes/products/Gemini_Generated_Image_un6z4oun6z4oun6z.png";
 
 export type Variant = { name: string; priceDelta?: number; brand?: string; image?: string };
 export type Product = {
@@ -61,44 +64,29 @@ export const categories = [
 export const products: Product[] = [
   // Galletería & Polvorones
   {
-    id: "gal-polvoron-canela",
-    name: "Polvorón de Canela",
-    description: "Polvorón tradicional de textura arenosa con canela.",
+    id: "gal-polvoron",
+    name: "Polvorón",
+    description: "Polvorón tradicional de textura arenosa y sabor casero, disponible en varios sabores.",
     price: 13,
     category: "Galletería & Polvorones",
     image: imgPolvoronCanela,
-  },
-  {
-    id: "gal-polvoron-chocolate",
-    name: "Polvorón de Chocolate",
-    description: "Polvorón de textura suave sabor chocolate.",
-    price: 13,
-    category: "Galletería & Polvorones",
-    image: imgPolvoronChocolate,
-  },
-  {
-    id: "gal-polvoron-nuez",
-    name: "Polvorón de Nuez",
-    description: "Polvorón casero elaborado con trozos de nuez selecta.",
-    price: 13,
-    category: "Galletería & Polvorones",
-    image: imgPolvoronNuez,
+    variants: [
+      { name: "Canela", image: imgPolvoronCanela },
+      { name: "Chocolate", image: imgPolvoronChocolate },
+      { name: "Nuez", image: imgPolvoronNuez },
+    ],
   },
   {
     id: "gal-deliciosa",
     name: "Deliciosa",
-    description: "Galleta tradicional rellena de jalea.",
+    description: "Galleta tradicional cóncava rellena de deliciosa jalea dulce.",
     price: 18,
     category: "Galletería & Polvorones",
     image: imgDeliciosa,
-  },
-  {
-    id: "gal-deliciosa-b",
-    name: "Deliciosa B",
-    description: "Galleta tradicional con cobertura especial.",
-    price: 18,
-    category: "Galletería & Polvorones",
-    image: imgDeliciosaB,
+    variants: [
+      { name: "Tradicional", image: imgDeliciosa },
+      { name: "Especial", image: imgDeliciosaB },
+    ],
   },
   {
     id: "gal-chispas",
@@ -186,36 +174,18 @@ export const products: Product[] = [
     image: imgBerlinesa,
   },
   {
-    id: "dul-dona-chocolate",
-    name: "Dona Chocolate",
-    description: "Dona suave con cobertura de chocolate.",
-    price: 20,
-    category: "Pan Dulce Tradicional",
-    image: imgDonaChocolate,
-  },
-  {
-    id: "dul-dona-doble-chocolate",
-    name: "Dona Doble Chocolate",
-    description: "Dona de chocolate con doble cobertura.",
-    price: 20,
-    category: "Pan Dulce Tradicional",
-    image: imgDonaDobleChocolate,
-  },
-  {
-    id: "dul-dona-nuez",
-    name: "Dona de Nuez",
-    description: "Dona suave con cobertura de chocolate y nuez.",
-    price: 21,
-    category: "Pan Dulce Tradicional",
-    image: imgDonaNuez,
-  },
-  {
     id: "dul-dona",
-    name: "Dona de Azúcar",
-    description: "Dona clásica suave y esponjosa.",
+    name: "Dona",
+    description: "Dona artesanal suave y esponjosa con coberturas variadas.",
     price: 20,
     category: "Pan Dulce Tradicional",
     image: imgDona,
+    variants: [
+      { name: "Azúcar", image: imgDona },
+      { name: "Chocolate", image: imgDonaChocolate },
+      { name: "Doble Chocolate", image: imgDonaDobleChocolate },
+      { name: "Nuez", image: imgDonaNuez },
+    ],
   },
   {
     id: "dul-lentes",
@@ -242,14 +212,10 @@ export const products: Product[] = [
     price: 13,
     category: "Cuernos & Hojaldres",
     image: imgCuerno,
-  },
-  {
-    id: "hoj-cuerno-sencillo",
-    name: "Cuerno Sencillo",
-    description: "Cuerno clásico de textura ligera.",
-    price: 13,
-    category: "Cuernos & Hojaldres",
-    image: imgCuernoSencillo,
+    variants: [
+      { name: "Estilo París", image: imgCuerno },
+      { name: "Sencillo", image: imgCuernoSencillo },
+    ],
   },
   {
     id: "hoj-oreja",
@@ -350,6 +316,30 @@ export const products: Product[] = [
     price: 20,
     category: "Panqués & Repostería",
     image: imgReja,
+  },
+  {
+    id: "rep-pan-001",
+    name: "Pan 001",
+    description: "Pieza de panadería fina con masa madre, corteza dorada y miga alveolada ideal para acompañar tus comidas.",
+    price: 18,
+    category: "Panqués & Repostería",
+    image: imgGemini6appbu,
+  },
+  {
+    id: "rep-pan-002",
+    name: "Pan 002",
+    description: "Exquisito pan de repostería hojaldrado con un toque de azúcar y mantequilla, perfecto para el café.",
+    price: 22,
+    category: "Panqués & Repostería",
+    image: imgGeminiT2cfa7,
+  },
+  {
+    id: "rep-pan-003",
+    name: "Pan 003",
+    description: "Tarta salada o quiché artesanal con costra crujiente de mantequilla y un relleno selecto del día.",
+    price: 24,
+    category: "Panqués & Repostería",
+    image: imgQuiche,
   },
 ];
 
