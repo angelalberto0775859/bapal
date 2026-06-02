@@ -5,9 +5,24 @@ import { formatMXN } from "@/lib/checkout";
 import { toast } from "sonner";
 
 export function Recommendations() {
-  // Find the exact products in our database
+  // Weekly rotating favorites — set changes automatically each ISO week
   const bestSellers = useMemo(() => {
-    const ids = ["hoj-cuerno-relleno", "dul-concha", "dul-cazuela"];
+    const pools: string[][] = [
+      ["hoj-cuerno-relleno", "dul-concha", "dul-cazuela"],
+      ["rep-rol-cajeta", "hoj-cuerno-relleno", "dul-bisquet"],
+      ["rep-rol-queso-nescafe", "dul-concha", "rep-choux"],
+      ["rep-rol-cajeta", "rep-rol-queso-nescafe", "dul-berlinesa"],
+      ["dul-dona", "hoj-oreja", "rep-chamaco"],
+      ["dul-concha", "rep-empanada-pina", "gal-deliciosa"],
+    ];
+    // ISO week number
+    const now = new Date();
+    const d = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+    const dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    const week = Math.ceil(((+d - +yearStart) / 86400000 + 1) / 7);
+    const ids = pools[week % pools.length];
     return ids.map((id) => products.find((p) => p.id === id)).filter(Boolean) as typeof products;
   }, []);
 
