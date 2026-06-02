@@ -106,7 +106,7 @@ export function PromoPopup() {
 
           {/* CTA Button */}
           <a
-            href="https://search.google.com/local/writereview?placeid=ChIJrYlP3Xb-0YURzxb0WbE1E5Q"
+            href="https://maps.app.goo.gl/yHLswxv6VPFUNyn97"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1.5 bg-accent text-accent-foreground text-[11px] font-medium tracking-wide uppercase px-4 py-2 rounded-sm hover:bg-accent/90 transition-colors mb-3"
