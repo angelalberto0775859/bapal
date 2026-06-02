@@ -41,6 +41,7 @@ export function PromoPopup() {
 
   const handleClose = () => {
     setShow(false);
+    localStorage.setItem("bapal_promo_seen", "true");
     // Unmount after animation completes (300ms)
     setTimeout(() => {
       setShouldRender(false);
