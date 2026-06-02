@@ -1,6 +1,7 @@
 import imgBerlinesa from "@/assets/Panes/products/Berlinesa.png";
 import imgBeso from "@/assets/Panes/products/Beso.png";
 import imgBisquet from "@/assets/Panes/products/Bisquet.png";
+import imgCazuela from "@/assets/Panes/products/Cazuela.png";
 import imgBolillo from "@/assets/Panes/products/Bolillo.png";
 import imgBroca from "@/assets/Panes/products/Broca.png";
 import imgChoux from "@/assets/Panes/products/Chux.png";
@@ -122,6 +123,14 @@ export const products: Product[] = [
     price: 13,
     category: "Pan Dulce Tradicional",
     image: imgBisquet,
+  },
+  {
+    id: "dul-cazuela",
+    name: "Cazuela",
+    description: "Cazuela artesanal dorada por fuera, suave y densa por dentro.",
+    price: 14,
+    category: "Pan Dulce Tradicional",
+    image: imgCazuela,
   },
   {
     id: "dul-concha",
