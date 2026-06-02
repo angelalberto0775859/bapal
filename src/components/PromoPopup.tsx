@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, Sparkles } from "lucide-react";
+import { X, Sparkles, ExternalLink } from "lucide-react";
 
 export function PromoPopup() {
   const [show, setShow] = useState(false);
