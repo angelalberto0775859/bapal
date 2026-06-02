@@ -237,8 +237,12 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           <img
             src={currentImage}
             alt={product.name}
+            width={512}
+            height={512}
             className="w-full h-full object-cover transition duration-500 group-hover:scale-[1.03]"
-            loading="lazy"
+            loading={index < 2 ? "eager" : "lazy"}
+            decoding="async"
+            fetchPriority={index < 2 ? "high" : "low"}
           />
         </div>
       )}
