@@ -87,6 +87,7 @@ function Index() {
         <BrandsCarousel />
         <Process />
         <Recommendations />
+        <FreshGallery />
         <Catalog />
       </main>
       <Footer />
