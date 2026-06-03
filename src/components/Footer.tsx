@@ -10,6 +10,9 @@ export function Footer() {
           <p className="text-sm text-muted-foreground max-w-xs mb-4">
             Panettería. Ingredientes nobles y horneado del día.
           </p>
+          <p className="text-xs text-muted-foreground/70 max-w-xs mb-4">
+            Utilizamos Microsoft Clarity para analizar cómo los usuarios interactúan con nuestro sitio y mejorar tu experiencia. Al navegar, aceptas el uso de estas herramientas.
+          </p>
           <div className="flex gap-4">
             <a
               href="https://www.facebook.com/people/Panetteria-BaPal/100091691280340/"
