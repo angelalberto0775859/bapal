@@ -192,7 +192,7 @@ function PrivacidadPage() {
 
             <section className="space-y-3">
               <h2 className="font-serif text-2xl text-foreground mt-4">
-                6. Modificaciones al Aviso de Privacidad
+                7. Modificaciones al Aviso de Privacidad
               </h2>
               <p>
                 Nos reservamos el derecho de efectuar en cualquier momento modificaciones o
