@@ -202,7 +202,7 @@ function PrivacidadPage() {
                 esta sección de nuestro sitio web.
               </p>
               <p className="text-xs text-muted-foreground pt-4">
-                Última actualización: Mayo de 2026.
+                Última actualización: Junio de 2026.
               </p>
             </section>
           </div>
