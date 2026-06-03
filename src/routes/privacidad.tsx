@@ -112,8 +112,63 @@ function PrivacidadPage() {
               </p>
             </section>
 
+            <section className="space-y-3" id="cookies">
+              <h2 className="font-serif text-2xl text-foreground mt-4">
+                5. Herramientas de Análisis y Rastreo
+              </h2>
+              <p>
+                En BaPal utilizamos herramientas de análisis de terceros para entender cómo los
+                usuarios interactúan con nuestro sitio web y así mejorar continuamente su
+                experiencia. Estas herramientas recopilan información anónima sobre su comportamiento
+                de navegación.
+              </p>
+              <p className="font-medium text-foreground">Microsoft Clarity</p>
+              <p>
+                Utilizamos Microsoft Clarity para registrar sesiones de usuario de forma anónima,
+                generar mapas de calor (heatmaps) y analizar el comportamiento de navegación en
+                nuestras páginas. Clarity puede capturar interacciones como clics, movimientos del
+                cursor y desplazamientos, todo con el fin de identificar áreas de mejora en el
+                diseño y usabilidad del sitio. La información recopilada por Clarity no permite
+                identificarle personalmente. Para más información, consulte la{" "}
+                <a
+                  href="https://privacy.microsoft.com/privacystatement"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:underline"
+                >
+                  Política de Privacidad de Microsoft
+                </a>
+                .
+              </p>
+              <p className="font-medium text-foreground">Google Analytics</p>
+              <p>
+                Utilizamos Google Analytics para medir el tráfico del sitio, entender de dónde
+                provienen nuestros visitantes y analizar patrones de uso generales. Google
+                Analytics emplea cookies y tecnologías similares para recopilar datos anónimos sobre
+                su dispositivo, navegador y comportamiento en el sitio. Puede optar por no ser
+                rastreado por Google Analytics instalando el{" "}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:underline"
+                >
+                  complemento de inhabilitación para navegadores
+                </a>
+                {" "}disponible directamente desde Google.
+              </p>
+              <p>
+                Al navegar en nuestro sitio, usted acepta el uso de estas herramientas de análisis
+                con fines de mejora continua. Si desea limitar o rechazar este tipo de seguimiento,
+                puede configurar su navegador para bloquear cookies de terceros o utilizar las
+                herramientas de exclusión proporcionadas por cada servicio.
+              </p>
+            </section>
+
             <section className="space-y-3">
-              <h2 className="font-serif text-2xl text-foreground mt-4">5. Derechos ARCO</h2>
+              <h2 className="font-serif text-2xl text-foreground mt-4">
+                6. Derechos ARCO
+              </h2>
               <p>
                 Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los
                 utilizamos y las condiciones del uso que les damos (<strong>Acceso</strong>).
