@@ -10,6 +10,9 @@ import h150 from "@/assets/gallery/horneado-150.jpg.asset.json";
 import h160 from "@/assets/gallery/horneado-160.jpg.asset.json";
 import h164 from "@/assets/gallery/horneado-164.jpg.asset.json";
 import h168 from "@/assets/gallery/horneado-168.jpg.asset.json";
+import h182 from "@/assets/gallery/horneado-182.jpg.asset.json";
+import h186 from "@/assets/gallery/horneado-186.jpg.asset.json";
+import h195 from "@/assets/gallery/horneado-195.jpg.asset.json";
 
 type Shot = { src: string; title: string; meta: string };
 
@@ -25,6 +28,9 @@ const shots: Shot[] = [
   { src: h160.url, title: "Cazuela glaseada", meta: "Brillo de horno · 07:00 AM" },
   { src: h164.url, title: "Bollo con ajonjolí", meta: "Salidos del horno · 07:08 AM" },
   { src: h168.url, title: "Empanada de piña", meta: "Jalea natural · 07:15 AM" },
+  { src: h182.url, title: "Dona glaseada", meta: "Chocolate brillante · 07:18 AM" },
+  { src: h186.url, title: "Masa recién formada", meta: "Textura suave · 07:22 AM" },
+  { src: h195.url, title: "Dona con chispas", meta: "Cobertura crujiente · 07:28 AM" },
 ];
 
 export function FreshGallery() {
