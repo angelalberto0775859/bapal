@@ -5,6 +5,11 @@ import g3 from "@/assets/gallery/gallery-3.jpg.asset.json";
 import g4 from "@/assets/gallery/gallery-4.jpg.asset.json";
 import s1 from "@/assets/gallery/suela-1.jpg.asset.json";
 import s2 from "@/assets/gallery/suela-2.jpg.asset.json";
+import h147 from "@/assets/gallery/horneado-147.jpg.asset.json";
+import h150 from "@/assets/gallery/horneado-150.jpg.asset.json";
+import h160 from "@/assets/gallery/horneado-160.jpg.asset.json";
+import h164 from "@/assets/gallery/horneado-164.jpg.asset.json";
+import h168 from "@/assets/gallery/horneado-168.jpg.asset.json";
 
 type Shot = { src: string; title: string; meta: string };
 
@@ -15,6 +20,11 @@ const shots: Shot[] = [
   { src: g4.url, title: "Tradición en cada pieza", meta: "Finalizado · 07:12 AM" },
   { src: s1.url, title: "Suelas doradas", meta: "Recién horneadas · 07:20 AM" },
   { src: s2.url, title: "Suelas esponjadas", meta: "Corteza brillante · 07:25 AM" },
+  { src: h147.url, title: "Conchas de vainilla", meta: "Recién decoradas · 06:50 AM" },
+  { src: h150.url, title: "Concha de canela", meta: "Azúcar cristalizada · 06:55 AM" },
+  { src: h160.url, title: "Cazuela glaseada", meta: "Brillo de horno · 07:00 AM" },
+  { src: h164.url, title: "Bollo con ajonjolí", meta: "Salidos del horno · 07:08 AM" },
+  { src: h168.url, title: "Empanada de piña", meta: "Jalea natural · 07:15 AM" },
 ];
 
 export function FreshGallery() {
