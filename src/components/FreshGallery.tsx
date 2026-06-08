@@ -3,6 +3,8 @@ import g1 from "@/assets/gallery/gallery-1.jpg.asset.json";
 import g2 from "@/assets/gallery/gallery-2.jpg.asset.json";
 import g3 from "@/assets/gallery/gallery-3.jpg.asset.json";
 import g4 from "@/assets/gallery/gallery-4.jpg.asset.json";
+import s1 from "@/assets/gallery/suela-1.jpg.asset.json";
+import s2 from "@/assets/gallery/suela-2.jpg.asset.json";
 
 type Shot = { src: string; title: string; meta: string };
 
@@ -11,6 +13,8 @@ const shots: Shot[] = [
   { src: g2.url, title: "Masa trabajada a mano", meta: "Bañado a mano · 07:05 AM" },
   { src: g3.url, title: "Recién salido del horno", meta: "Mantequilla pura · 06:58 AM" },
   { src: g4.url, title: "Tradición en cada pieza", meta: "Finalizado · 07:12 AM" },
+  { src: s1.url, title: "Suelas doradas", meta: "Recién horneadas · 07:20 AM" },
+  { src: s2.url, title: "Suelas esponjadas", meta: "Corteza brillante · 07:25 AM" },
 ];
 
 export function FreshGallery() {
