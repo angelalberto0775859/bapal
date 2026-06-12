@@ -97,7 +97,7 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
             Confirmar orden · WhatsApp + PDF
           </button>
           <p className="text-[11px] text-muted-foreground text-center leading-relaxed">
-            Se descargará tu nota de remisión y se abrirá WhatsApp para validar inventario.
+            Pago por transferencia. Se descargará tu nota de remisión y se abrirá WhatsApp para enviar el ticket y validar inventario.
           </p>
         </div>
       </aside>
