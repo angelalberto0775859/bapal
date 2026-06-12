@@ -65,7 +65,7 @@ export function FreshGallery() {
         </div>
 
         <div
-          className="grid lg:grid-cols-[1.4fr_1fr] gap-6 items-stretch"
+          className="flex flex-col gap-6"
           onMouseEnter={() => (hovering.current = true)}
           onMouseLeave={() => (hovering.current = false)}
         >
@@ -104,7 +104,7 @@ export function FreshGallery() {
           </div>
 
           {/* Thumb strip */}
-          <div className="grid grid-cols-2 gap-3 lg:gap-4 content-stretch">
+          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
             {shots.map((s, i) => (
               <button
                 key={s.src}
@@ -112,12 +112,12 @@ export function FreshGallery() {
                   setActive(i);
                   setProgress(0);
                 }}
-                className={`relative overflow-hidden rounded-sm border transition-all duration-500 group ${
+                className={`relative flex-shrink-0 overflow-hidden rounded-sm border transition-all duration-500 group ${
                   i === active
                     ? "border-accent shadow-lg scale-[1.02]"
                     : "border-border hover:border-foreground/40"
                 }`}
-                style={{ aspectRatio: "1 / 1" }}
+                style={{ width: "100px", height: "80px" }}
                 aria-label={s.title}
               >
                 <img
@@ -128,12 +128,8 @@ export function FreshGallery() {
                   }`}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <span className="absolute bottom-2 left-2 right-2 text-left text-white text-[10px] md:text-xs font-serif leading-tight">
-                  {s.title}
-                </span>
                 {i === active && (
-                  <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-accent animate-pulse" />
+                  <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-accent animate-pulse" />
                 )}
               </button>
             ))}
