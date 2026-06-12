@@ -93,14 +93,15 @@
 
 @layer utilities {
   .marquee {
-    animation: marquee 40s linear infinite;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
   }
   @keyframes marquee {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-50%);
+      transform: translateX(-25%);
     }
   }
   .reveal {
