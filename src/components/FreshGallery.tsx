@@ -104,7 +104,7 @@ export function FreshGallery() {
           </div>
 
           {/* Thumb strip */}
-          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+          <div className="flex gap-3 overflow-x-auto pb-2">
             {shots.map((s, i) => (
               <button
                 key={s.src}
