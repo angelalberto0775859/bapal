@@ -74,7 +74,7 @@ export function generatePDF(folio: string, items: CartItem[], total: number) {
   y += 36;
   doc.setFontSize(8);
   doc.setTextColor(140);
-  doc.text("Gracias por elegir BaPal. Este documento es una nota de remisión digital.", W / 2, y, {
+  doc.text("Pago por transferencia. Envía tu nota de remisión por WhatsApp como comprobante de pago.", W / 2, y, {
     align: "center",
   });
 
@@ -94,7 +94,10 @@ export function buildWhatsappURL(folio: string, items: CartItem[], total: number
     ``,
     `*Total neto:* ${formatMXN(total)}`,
     ``,
-    `📄 PDF generado y descargado para validación de inventario.`,
+    `💳 *Pago por transferencia*`,
+    `📎 Adjunta la nota de remisión descargada como comprobante de pago.`,
+    ``,
+    `Gracias por elegir BaPal.`,
   ];
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
 }
