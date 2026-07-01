@@ -14,6 +14,11 @@ import h168 from "@/assets/gallery/horneado-168.jpg.asset.json";
 import h182 from "@/assets/gallery/horneado-182.jpg.asset.json";
 import h186 from "@/assets/gallery/horneado-186.jpg.asset.json";
 import h195 from "@/assets/gallery/horneado-195.jpg.asset.json";
+import j36 from "@/assets/gallery/julio-36.jpg.asset.json";
+import j36_2 from "@/assets/gallery/julio-36_2.jpg.asset.json";
+import j36_4 from "@/assets/gallery/julio-36_4.jpg.asset.json";
+import j37_1 from "@/assets/gallery/julio-37_1.jpg.asset.json";
+import j37_6 from "@/assets/gallery/julio-37_6.jpg.asset.json";
 
 type Shot = { src: string; title: string };
 
@@ -32,6 +37,11 @@ const shots: Shot[] = [
   { src: h182.url, title: "Tentador" },
   { src: h186.url, title: "Tierno" },
   { src: h195.url, title: "Irresistible" },
+  { src: j36.url, title: "Recién Horneado" },
+  { src: j36_2.url, title: "Nuez Caramelizada" },
+  { src: j36_4.url, title: "Multigrano" },
+  { src: j37_1.url, title: "Hojaldrado" },
+  { src: j37_6.url, title: "Nevado" },
 ];
 
 export function FreshGallery() {
