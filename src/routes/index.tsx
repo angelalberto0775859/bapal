@@ -13,6 +13,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/useReveal";
 import { PromoPopup } from "@/components/PromoPopup";
 import { FreshGallery } from "@/components/FreshGallery";
+import { Pasteleria } from "@/components/Pasteleria";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -88,6 +89,7 @@ function Index() {
         <Process />
         <Recommendations />
         <FreshGallery />
+        <Pasteleria />
         <Catalog />
       </main>
       <Footer />
