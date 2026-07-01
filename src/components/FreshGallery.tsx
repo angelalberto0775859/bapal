@@ -19,15 +19,25 @@ import j36_2 from "@/assets/gallery/julio-36_2.jpg.asset.json";
 import j36_4 from "@/assets/gallery/julio-36_4.jpg.asset.json";
 import j37_1 from "@/assets/gallery/julio-37_1.jpg.asset.json";
 import j37_6 from "@/assets/gallery/julio-37_6.jpg.asset.json";
+import p1 from "@/assets/pasteleria/pasteleria-37_2.jpg.asset.json";
+import p2 from "@/assets/pasteleria/pasteleria-37_3.jpg.asset.json";
+import p3 from "@/assets/pasteleria/pasteleria-37_4.jpg.asset.json";
+import p4 from "@/assets/pasteleria/pasteleria-37_5.jpg.asset.json";
+import p5 from "@/assets/pasteleria/pasteleria-37_7.jpg.asset.json";
 
 type Shot = { src: string; title: string };
 
 const shots: Shot[] = [
   { src: g1.url, title: "Delicioso" },
+  { src: p5.url, title: "Hojaldrado" },
   { src: g2.url, title: "Sabroso" },
+  { src: p2.url, title: "Con Chocolate" },
   { src: g3.url, title: "Doradito" },
+  { src: p1.url, title: "Frutal" },
   { src: g4.url, title: "Esponjoso" },
+  { src: p3.url, title: "Crujiente hojaldre" },
   { src: s1.url, title: "Crujiente" },
+  { src: p4.url, title: "Con crema pastelera" },
   { src: s2.url, title: "Suavecito" },
   { src: h147.url, title: "Dulce" },
   { src: h150.url, title: "Aromático" },
@@ -40,7 +50,7 @@ const shots: Shot[] = [
   { src: j36.url, title: "Recién Horneado" },
   { src: j36_2.url, title: "Nuez Caramelizada" },
   { src: j36_4.url, title: "Multigrano" },
-  { src: j37_1.url, title: "Hojaldrado" },
+  { src: j37_1.url, title: "Laminado" },
   { src: j37_6.url, title: "Nevado" },
 ];
 
@@ -102,23 +112,23 @@ export function FreshGallery() {
             {sideShots.map((shotIndex) => {
               const shot = shots[shotIndex];
               return (
-              <Button
-                key={shot.src}
-                variant="ghost"
-                onClick={() => setActive(shotIndex)}
-                className="group relative h-36 overflow-hidden rounded-2xl p-0 md:h-auto"
-                aria-label={`Ver ${shot.title}`}
-              >
-                <img
-                  src={shot.src}
-                  alt={shot.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <span className="absolute inset-0 flex items-end bg-gradient-to-t from-foreground/70 to-transparent p-4 text-left font-serif text-xl text-background">
-                  {shot.title}
-                </span>
-              </Button>
+                <Button
+                  key={shot.src}
+                  variant="ghost"
+                  onClick={() => setActive(shotIndex)}
+                  className="group relative h-36 overflow-hidden rounded-2xl p-0 md:h-auto"
+                  aria-label={`Ver ${shot.title}`}
+                >
+                  <img
+                    src={shot.src}
+                    alt={shot.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <span className="absolute inset-0 flex items-end bg-gradient-to-t from-foreground/70 to-transparent p-4 text-left font-serif text-xl text-background">
+                    {shot.title}
+                  </span>
+                </Button>
               );
             })}
             <Button

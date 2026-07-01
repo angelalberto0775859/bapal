@@ -89,8 +89,8 @@ function Index() {
         <Process />
         <Recommendations />
         <FreshGallery />
-        <Pasteleria />
         <Catalog />
+        <Pasteleria />
       </main>
       <Footer />
       <div
