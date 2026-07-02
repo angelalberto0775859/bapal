@@ -35,15 +35,49 @@ export function Pasteleria() {
     details: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const buildMessages = () => {
+    const subject = `Cotización de pastel — ${form.name}`;
+    const bodyLines = [
+      "Hola BaPal, quiero cotizar un pastel:",
+      "",
+      `Nombre: ${form.name}`,
+      `Teléfono: ${form.phone}`,
+      `Fecha del evento: ${form.date || "—"}`,
+      `Porciones aproximadas: ${form.servings || "—"}`,
+      "",
+      "Detalles del pastel:",
+      form.details || "—",
+      "",
+      "— Enviado desde bapal.mx",
+    ];
+    const plain = bodyLines.join("\n");
+    const waMsg = encodeURIComponent(plain);
+    const mailto = `mailto:panetteriabapal@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(plain)}`;
+    const wa = `https://wa.me/525667663556?text=${waMsg}`;
+    return { mailto, wa };
+  };
+
+  const validate = () => {
     if (!form.name || !form.phone) {
       toast.error("Nombre y teléfono son requeridos");
-      return;
+      return false;
     }
-    const msg = `Hola BaPal, quiero cotizar un pastel:%0A%0A👤 ${form.name}%0A📞 ${form.phone}%0A📅 Fecha: ${form.date || "—"}%0A🍰 Porciones: ${form.servings || "—"}%0A📝 ${form.details || "—"}`;
-    window.open(`https://wa.me/525667663556?text=${msg}`, "_blank");
-    toast.success("Abriendo WhatsApp para tu cotización");
+    return true;
+  };
+
+  const handleEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+    const { mailto } = buildMessages();
+    window.location.href = mailto;
+    toast.success("Abriendo tu correo con la cotización");
+  };
+
+  const handleWhatsApp = () => {
+    if (!validate()) return;
+    const { wa } = buildMessages();
+    window.open(wa, "_blank");
+    toast.success("Abriendo WhatsApp con la cotización");
   };
 
   return (
@@ -94,11 +128,11 @@ export function Pasteleria() {
               <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Cotiza tu pastel</p>
               <h3 className="font-serif text-2xl text-foreground md:text-3xl">Diseñamos el pastel que imaginas</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Cuéntanos los detalles y recibirás tu cotización por WhatsApp.
+                Cuéntanos los detalles y te contactamos por correo o WhatsApp.
               </p>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
+          <form onSubmit={handleEmail} className="grid gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="cake-name">Nombre</Label>
               <Input
@@ -153,10 +187,22 @@ export function Pasteleria() {
                 maxLength={500}
               />
             </div>
-            <div className="md:col-span-2">
-              <Button type="submit" size="lg" className="w-full md:w-auto">
-                Enviar cotización por WhatsApp
+            <div className="md:col-span-2 flex flex-col gap-3 sm:flex-row">
+              <Button type="submit" size="lg" className="w-full sm:w-auto">
+                Enviar por correo
               </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="lg"
+                onClick={handleWhatsApp}
+                className="w-full sm:w-auto"
+              >
+                Enviar por WhatsApp
+              </Button>
+              <p className="self-center text-xs text-muted-foreground">
+                Se envía a panetteriabapal@gmail.com
+              </p>
             </div>
           </form>
         </div>
