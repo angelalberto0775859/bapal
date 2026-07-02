@@ -128,11 +128,11 @@ export function Pasteleria() {
               <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-accent">Cotiza tu pastel</p>
               <h3 className="font-serif text-2xl text-foreground md:text-3xl">Diseñamos el pastel que imaginas</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Cuéntanos los detalles y recibirás tu cotización por WhatsApp.
+                Cuéntanos los detalles y te contactamos por correo o WhatsApp.
               </p>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
+          <form onSubmit={handleEmail} className="grid gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="cake-name">Nombre</Label>
               <Input
