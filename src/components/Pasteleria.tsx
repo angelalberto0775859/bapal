@@ -187,10 +187,22 @@ export function Pasteleria() {
                 maxLength={500}
               />
             </div>
-            <div className="md:col-span-2">
-              <Button type="submit" size="lg" className="w-full md:w-auto">
-                Enviar cotización por WhatsApp
+            <div className="md:col-span-2 flex flex-col gap-3 sm:flex-row">
+              <Button type="submit" size="lg" className="w-full sm:w-auto">
+                Enviar por correo
               </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="lg"
+                onClick={handleWhatsApp}
+                className="w-full sm:w-auto"
+              >
+                Enviar por WhatsApp
+              </Button>
+              <p className="self-center text-xs text-muted-foreground">
+                Se envía a panetteriabapal@gmail.com
+              </p>
             </div>
           </form>
         </div>
