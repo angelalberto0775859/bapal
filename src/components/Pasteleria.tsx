@@ -42,7 +42,7 @@ export function Pasteleria() {
       return;
     }
     const msg = `Hola BaPal, quiero cotizar un pastel:%0A%0A👤 ${form.name}%0A📞 ${form.phone}%0A📅 Fecha: ${form.date || "—"}%0A🍰 Porciones: ${form.servings || "—"}%0A📝 ${form.details || "—"}`;
-    window.open(`https://wa.me/525560660606?text=${msg}`, "_blank");
+    window.open(`https://wa.me/525667663556?text=${msg}`, "_blank");
     toast.success("Abriendo WhatsApp para tu cotización");
   };
 

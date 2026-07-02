@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 import type { CartItem } from "./cart-store";
 
-const WHATSAPP_NUMBER = "525560660606";
+const WHATSAPP_NUMBER = "525667663556";
 
 export function generateFolio() {
   const d = new Date();
