@@ -35,15 +35,49 @@ export function Pasteleria() {
     details: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const buildMessages = () => {
+    const subject = `Cotización de pastel — ${form.name}`;
+    const bodyLines = [
+      "Hola BaPal, quiero cotizar un pastel:",
+      "",
+      `Nombre: ${form.name}`,
+      `Teléfono: ${form.phone}`,
+      `Fecha del evento: ${form.date || "—"}`,
+      `Porciones aproximadas: ${form.servings || "—"}`,
+      "",
+      "Detalles del pastel:",
+      form.details || "—",
+      "",
+      "— Enviado desde bapal.mx",
+    ];
+    const plain = bodyLines.join("\n");
+    const waMsg = encodeURIComponent(plain);
+    const mailto = `mailto:panetteriabapal@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(plain)}`;
+    const wa = `https://wa.me/525667663556?text=${waMsg}`;
+    return { mailto, wa };
+  };
+
+  const validate = () => {
     if (!form.name || !form.phone) {
       toast.error("Nombre y teléfono son requeridos");
-      return;
+      return false;
     }
-    const msg = `Hola BaPal, quiero cotizar un pastel:%0A%0A👤 ${form.name}%0A📞 ${form.phone}%0A📅 Fecha: ${form.date || "—"}%0A🍰 Porciones: ${form.servings || "—"}%0A📝 ${form.details || "—"}`;
-    window.open(`https://wa.me/525667663556?text=${msg}`, "_blank");
-    toast.success("Abriendo WhatsApp para tu cotización");
+    return true;
+  };
+
+  const handleEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+    const { mailto } = buildMessages();
+    window.location.href = mailto;
+    toast.success("Abriendo tu correo con la cotización");
+  };
+
+  const handleWhatsApp = () => {
+    if (!validate()) return;
+    const { wa } = buildMessages();
+    window.open(wa, "_blank");
+    toast.success("Abriendo WhatsApp con la cotización");
   };
 
   return (
