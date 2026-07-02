@@ -15,7 +15,7 @@ export function FloatingContact() {
         {/* WhatsApp — deshabilitado temporalmente */}
         {/*
         <a
-          href="https://wa.me/525560660606"
+          href="https://wa.me/525667663556"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 group"
