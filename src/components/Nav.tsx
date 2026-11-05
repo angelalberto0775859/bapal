@@ -81,6 +81,7 @@ export function Nav({ onCart }: { onCart: () => void }) {
 
         <div
           id="mobile-navigation"
+          inert={!mobileOpen}
           className={`md:hidden overflow-hidden border-t border-border/60 bg-background/95 shadow-xl transition-[max-height,opacity] duration-300 ${
             mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}

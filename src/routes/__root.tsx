@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { CookieBanner } from "@/components/CookieBanner";
+import { PromoPopup } from "@/components/PromoPopup";
 
 function NotFoundComponent() {
   return (
@@ -130,7 +131,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <HeadContent />
         <script
@@ -173,6 +174,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <CookieBanner />
+      <PromoPopup />
     </QueryClientProvider>
   );
 }

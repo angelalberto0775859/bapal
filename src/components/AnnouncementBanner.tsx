@@ -1,87 +1,80 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+
+const announcements = [
+  { text: "Pan artesanal, pastelería y momentos para compartir", href: null },
+  { text: "Encuentra tu favorito en nuestro catálogo", href: "/#catalogo" },
+  { text: "Pastelería para una ocasión especial", href: "/#pasteleria" },
+  { text: "Lleva BaPal a tu próximo evento", href: "/eventos" },
+];
 
 export function AnnouncementBanner() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  const announcements = useMemo(
-    () => [
-      "✨ ¡Celebramos la apertura de nuestra página web! Explora el catálogo en línea. 🥖",
-      "🎉 Eventos y Catering: Lleva el mejor pan artesanal a tus reuniones. 🥐",
-      "🕒 Horneo diario con ingredientes frescos. ¡Pide hoy y disfruta! 🥖",
-    ],
-    [],
-  );
-
-  const handlePrev = () => {
-    setFade(false);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + announcements.length) % announcements.length);
-      setFade(true);
-    }, 200);
-  };
-
-  const handleNext = useCallback(() => {
-    setFade(false);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % announcements.length);
-      setFade(true);
-    }, 200);
-  }, [announcements.length]);
-
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
   useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 6000);
-
+    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const interval = setInterval(
+      () => setCurrent((value) => (value + 1) % announcements.length),
+      6500,
+    );
     return () => clearInterval(interval);
-  }, [handleNext]);
-
+  }, [paused]);
+  const item = announcements[current];
+  const content = (
+    <>
+      {item.text}
+      <ArrowUpRight className="ml-2 inline size-3 shrink-0" />
+    </>
+  );
   return (
-    <div className="bg-accent text-accent-foreground w-full relative min-h-[36px] py-1.5 md:py-0 md:h-10 flex items-center justify-between px-3 md:px-12 select-none border-b border-white/10 z-50 text-[9px] md:text-xs tracking-wider uppercase font-medium">
-      {/* Sparkle decorative icon left */}
-      <div className="hidden md:flex items-center gap-1.5 opacity-90">
-        <Sparkles className="w-3.5 h-3.5 text-accent-foreground animate-pulse" />
-        <span>Artesanal</span>
-      </div>
-
-      <div className="flex items-center justify-center flex-1 max-w-3xl mx-auto">
-        {/* Navigation Left */}
+    <div
+      className="flex min-h-11 w-full items-center justify-between border-b border-white/10 bg-primary px-2 text-primary-foreground sm:px-6"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node)) setPaused(false);
+      }}
+    >
+      <span className="hidden text-[10px] uppercase tracking-[0.22em] lg:block">
+        BaPal · Panettería
+      </span>
+      <div className="mx-auto flex w-full max-w-2xl items-center justify-between">
         <button
-          onClick={handlePrev}
-          className="hover:opacity-75 transition-opacity focus:outline-none shrink-0 p-1 cursor-pointer"
+          onClick={() =>
+            setCurrent((value) => (value - 1 + announcements.length) % announcements.length)
+          }
+          className="grid size-11 shrink-0 place-items-center rounded-full transition-colors hover:bg-white/10"
           aria-label="Anuncio anterior"
         >
-          <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          <ChevronLeft className="size-4" />
         </button>
-
-        {/* Content Center */}
-        <div className="flex-1 text-center px-2 select-text py-0.5">
-          <span
-            className={`inline-block transition-all duration-200 leading-tight md:leading-none text-center ${
-              fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1.5"
-            }`}
+        {item.href ? (
+          <a
+            href={item.href}
+            className="flex min-h-11 items-center justify-center px-2 text-center text-[11px] leading-snug sm:text-xs"
           >
-            {announcements[currentIndex]}
-          </span>
-        </div>
-
-        {/* Navigation Right */}
+            {content}
+          </a>
+        ) : (
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("bapal:discover"))}
+            className="flex min-h-11 items-center justify-center px-2 text-center text-[11px] leading-snug sm:text-xs"
+          >
+            {content}
+          </button>
+        )}
         <button
-          onClick={handleNext}
-          className="hover:opacity-75 transition-opacity focus:outline-none shrink-0 p-1 cursor-pointer"
+          onClick={() => setCurrent((value) => (value + 1) % announcements.length)}
+          className="grid size-11 shrink-0 place-items-center rounded-full transition-colors hover:bg-white/10"
           aria-label="Siguiente anuncio"
         >
-          <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          <ChevronRight className="size-4" />
         </button>
       </div>
-
-      {/* Sparkle decorative icon right */}
-      <div className="hidden md:flex items-center gap-1.5 opacity-90">
-        <span>BaPal</span>
-        <Sparkles className="w-3.5 h-3.5 text-accent-foreground animate-pulse" />
-      </div>
+      <span className="hidden text-[10px] uppercase tracking-[0.22em] lg:block">
+        Hecho para compartir
+      </span>
     </div>
   );
 }

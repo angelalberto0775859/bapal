@@ -11,7 +11,6 @@ import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
 import { Toaster } from "@/components/ui/sonner";
 import { useReveal } from "@/hooks/useReveal";
-import { PromoPopup } from "@/components/PromoPopup";
 import { FreshGallery } from "@/components/FreshGallery";
 import { Pasteleria } from "@/components/Pasteleria";
 
@@ -76,7 +75,6 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-
 function Index() {
   const [cartOpen, setCartOpen] = useState(false);
   useReveal();
@@ -93,23 +91,9 @@ function Index() {
         <Pasteleria />
       </main>
       <Footer />
-      <div
-        role="presentation"
-        aria-hidden="true"
-        className="w-full grid grid-cols-3 h-14 md:h-16 border-t border-border/60"
-      >
-        <div className="bg-[#006847]" />
-        <div className="bg-white flex items-center justify-center">
-          <span className="font-serif text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#1a1a1a]">
-            Mundial <span className="text-[#006847]">·</span> 2026 <span className="text-[#ce1126]">·</span> México
-          </span>
-        </div>
-        <div className="bg-[#ce1126]" />
-      </div>
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <Toaster position="bottom-right" />
       <FloatingContact />
-      <PromoPopup />
     </div>
   );
 }
